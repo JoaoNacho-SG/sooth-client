@@ -1,4 +1,9 @@
+$outline-color: #354E57;
+
 .btn {
     background-color: transparent;
-    border: 2px solid grey
+    width: 173px;
+    height:35px;
+    border: 1px solid $outline-color;
+    color: #2E2E22;
 }

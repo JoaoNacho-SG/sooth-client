@@ -1,18 +1,15 @@
-import './App.css';
-import { Button } from "./components/general/Button"
+// import { Button } from "./components/general/Button";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      {/* <Button /> */}
 
-<Button />
-
-{/* Make routes here */}
-<Routes>
-  <Route />
-</Routes>
-
+      {/* Make routes here */}
+      <Routes>
+        <Route />
+      </Routes>
     </div>
   );
 }

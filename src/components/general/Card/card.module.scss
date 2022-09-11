@@ -1,0 +1,33 @@
+.card__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 200px;
+    
+
+    img {
+        width: 200px;
+        height: 250px;
+    }
+
+    h4 {
+margin-bottom: -10px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.card__price {
+display: flex;
+gap:15px;
+}
+
+.card__price_nodiscount {
+    text-decoration: line-through;
+}
+
+.card__price_discount {
+    color: #A67744;
+}

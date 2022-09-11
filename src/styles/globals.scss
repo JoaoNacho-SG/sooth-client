@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
-$font: Outfit;
+$font-family: Outfit;
+$bg-color:#F7F7F7;
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: $font;
+  font-family: $font-family;
+  background-color: $bg-color;
   }
 
 ul {
   list-style: none; 
+}
+
+button:hover {
+  cursor: pointer;
 }

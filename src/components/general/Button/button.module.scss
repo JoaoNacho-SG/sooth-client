@@ -1,9 +1,5 @@
-$outline-color: #354E57;
-
 .btn {
     background-color: transparent;
-    width: 173px;
-    height:35px;
-    border: 1px solid $outline-color;
-    color: #2E2E22;
+    min-width: 173px;
+    min-height:35px;
 }

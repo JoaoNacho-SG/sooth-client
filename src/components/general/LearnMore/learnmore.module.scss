@@ -1,0 +1,31 @@
+$text-color: #354E57;
+$bg-color: #EEF2F4;
+
+.container {
+    margin-top: 100px;
+    height: 235px;
+    background-color: $bg-color;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.wrapper {
+    text-align: center;
+    width: 120px;
+
+    p{
+        font-size: 14px;
+        color: $text-color;
+    }
+
+    a{
+        font-size: 10px;
+        color: $text-color;
+    }
+}
+.icon {
+    font-size: 30px;
+    color: #C6B9B6;
+}

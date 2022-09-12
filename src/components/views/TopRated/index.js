@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./toprated.module.scss";
 import { Card } from "../../general/Card";
-import topRatedProducts from "../../../assets/toprated.json";
+import topRatedProducts from "../../../assets/data/toprated.json";
 
 export const TopRated = () => {
   return (

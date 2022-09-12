@@ -7,6 +7,7 @@ import { Popular } from "./components/views/Popular";
 import { CleanProducts } from "./components/views/CleanProducts";
 import { TopRated } from "./components/views/TopRated";
 import { NaturalIngredients } from "./components/views/NaturalIngredients";
+import { BestIngredients } from "./components/views/BestIngredients";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
       </Layout>
 
       <NaturalIngredients />
+
+      <Layout>
+        <BestIngredients />
+      </Layout>
+
       {/* Make routes here */}
       <Routes>
         <Route />

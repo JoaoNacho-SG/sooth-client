@@ -1,5 +1,5 @@
 import React from "react";
-import products from "../../../assets/products.json";
+import products from "../../../assets/data/products.json";
 import { Card } from "../../general/Card";
 import style from "./popular.module.scss";
 

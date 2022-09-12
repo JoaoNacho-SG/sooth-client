@@ -1,0 +1,30 @@
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+}
+
+.text__wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 60px;
+
+    h1 {
+        font-weight: 100;
+        font-size: 20px;
+    }
+
+    p{
+        font-weight: 100;
+        margin-top: -8px;
+        font-size: 14px;
+    }
+}

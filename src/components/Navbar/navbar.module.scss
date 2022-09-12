@@ -5,6 +5,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .navbar__content {
@@ -19,6 +20,7 @@
 .navbar__second_row {
 display: flex;
 justify-content: center;
+flex-wrap: wrap;
 gap: 50px;
 font-size: 12px;
 }

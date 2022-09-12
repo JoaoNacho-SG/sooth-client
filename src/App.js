@@ -9,6 +9,7 @@ import { TopRated } from "./components/views/TopRated";
 import { NaturalIngredients } from "./components/views/NaturalIngredients";
 import { BestIngredients } from "./components/views/BestIngredients";
 import { LearnMore } from "./components/general/LearnMore";
+import { JoinSooth } from "./components/views/JoinSooth";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
       </Layout>
 
       <LearnMore />
+      <JoinSooth />
+
       {/* Make routes here */}
       <Routes>
         <Route />

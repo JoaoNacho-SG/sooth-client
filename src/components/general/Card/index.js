@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import style from "./card.module.scss";
+// import { calcPercentage } from "../../../utils/percentage";
 
 export const Card = ({
   img,

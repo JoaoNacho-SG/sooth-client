@@ -13,6 +13,7 @@ export const CleanProducts = () => {
     <>
       <TextWithImage
         textFirst={true}
+        bgColor={"#547665"}
         img={image}
         title={"Clean products that deliver better solutions"}
         content={textContent}

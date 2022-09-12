@@ -5,6 +5,7 @@ import style from "./textwithimage.module.scss";
 
 export const TextWithImage = ({
   textFirst,
+  bgColor,
   img,
   title,
   content,
@@ -15,7 +16,10 @@ export const TextWithImage = ({
 }) => {
   if (textFirst) {
     return (
-      <section className={style.container}>
+      <section
+        className={style.container}
+        style={{ backgroundColor: `${bgColor}` }}
+      >
         <div className={style.wrapper__text}>
           <InfoText title={title} content={content} textColor={textColor} />
           <Button
@@ -34,7 +38,10 @@ export const TextWithImage = ({
 
   if (!textFirst) {
     return (
-      <section className={style.container}>
+      <section
+        className={style.container}
+        style={{ backgroundColor: `${bgColor}` }}
+      >
         <div className={style.wrapper__img}>
           <img src={img} alt="happy people" />
         </div>

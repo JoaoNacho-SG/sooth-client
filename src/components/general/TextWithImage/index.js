@@ -9,6 +9,9 @@ export const TextWithImage = ({
   title,
   content,
   textColor,
+  btnContent,
+  btnBorderColor,
+  btnFontColor,
 }) => {
   if (textFirst) {
     return (
@@ -16,9 +19,9 @@ export const TextWithImage = ({
         <div className={style.wrapper__text}>
           <InfoText title={title} content={content} textColor={textColor} />
           <Button
-            content={"Shop more"}
-            borderColor={"white"}
-            fontColor={"white"}
+            btnContent={btnContent}
+            btnBorderColor={btnBorderColor}
+            btnFontColor={btnFontColor}
           />
         </div>
 
@@ -37,7 +40,12 @@ export const TextWithImage = ({
         </div>
 
         <div className={style.wrapper__text}>
-          <InfoText title={title} content={content} />
+          <InfoText title={title} content={content} textColor={textColor} />
+          <Button
+            btnContent={btnContent}
+            btnBorderColor={btnBorderColor}
+            btnFontColor={btnFontColor}
+          />
         </div>
       </section>
     );

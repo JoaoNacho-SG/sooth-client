@@ -13,9 +13,9 @@ export const HeroSection = () => {
           textColor={"#354E57"}
         />
         <Button
-          content={"Shop products"}
-          borderColor={"#354E57"}
-          fontColor={"#2E2E22"}
+          btnContent={"Shop products"}
+          btnBorderColor={"#354E57"}
+          btnFontColor={"#2E2E22"}
         />
       </div>
 

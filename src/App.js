@@ -6,6 +6,8 @@ import { HeroSection } from "./components/views/HeroSection";
 import { Explore } from "./components/views/Explore";
 import { Popular } from "./components/views/Popular";
 import { CleanProducts } from "./components/views/CleanProducts";
+import { TopRated } from "./components/views/TopRated";
+import { Button } from "./components/general/Button";
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
       </Layout>
 
       <CleanProducts />
+
+      <Layout>
+        <TopRated />
+      </Layout>
 
       {/* Make routes here */}
       <Routes>

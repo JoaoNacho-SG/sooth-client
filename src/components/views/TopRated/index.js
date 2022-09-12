@@ -1,18 +1,18 @@
 import React from "react";
-import products from "../../../assets/products.json";
+import style from "./toprated.module.scss";
 import { Card } from "../../general/Card";
-import style from "./popular.module.scss";
+import topRatedProducts from "../../../assets/toprated.json";
 
-export const Popular = () => {
+export const TopRated = () => {
   return (
     <section>
-      <div className={style.popular__browse}>
-        <p>Most Popular</p>
+      <div className={style.toprated__browse}>
+        <p>Top rated</p>
         <p>Shop all Products</p>
       </div>
 
-      <div className={style.popular__container}>
-        {products.map((product, index) => {
+      <div className={style.toprated__container}>
+        {topRatedProducts.map((product, index) => {
           return (
             <article key={index}>
               <Card

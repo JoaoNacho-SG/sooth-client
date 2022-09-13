@@ -16,8 +16,8 @@ export const NaturalIngredients = () => {
         content={textContent}
         textColor={"#2E2E22"}
         btnContent={"Shop more"}
-        btnBorderColor={"#956A53"}
-        btnFontColor={"#2E2E22"}
+        btnClass={"tertiary"}
+        icon={false}
       />
     </>
   );

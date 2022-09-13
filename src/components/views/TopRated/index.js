@@ -22,9 +22,9 @@ export const TopRated = () => {
                 price={product.price}
                 newprice={product?.newprice}
                 discount={product.discount}
-                btnContent={`🛒 Add to cart`}
-                btnBorderColor={"#354E57"}
-                btnFontColor={"#354E57"}
+                btnContent={`Add to cart`}
+                btnClass={"primary"}
+                icon={true}
               />
             </article>
           );

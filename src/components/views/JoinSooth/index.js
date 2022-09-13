@@ -16,7 +16,7 @@ export const JoinSooth = () => {
       </div>
       <div className={style.input__wrapper}>
         <input type="text"></input>
-        <Button />
+        <Button btnContent={"Subscribe"} btnClass={"filled"} />
       </div>
     </section>
   );

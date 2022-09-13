@@ -1,5 +1,50 @@
-.btn {
-    background-color: transparent;
+// button filled
+$filled_bg_color: #956A53;
+$filled_font_color: #FFFF;
+$filled_border_color: #956A53;
+// button primary
+$primary_border_color: #354E57;
+$primary_font_color: #2E2E22;
+//button secondary
+$secondary_border_color: #FFFF;
+$secondary_font_color: #F7F5E6;
+//button tertiary
+$tertiary_border_color:#956A53;
+$tertiary_font_color:#2E2E22;
+
+
+.btn__primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     min-width: 173px;
     min-height:35px;
+    background-color: transparent;
+    border: 1px solid $primary_border_color;
+    color: $primary_font_color;
+}
+
+.btn__secondary {
+    min-width: 173px;
+    min-height:35px;
+    background-color: transparent;
+    border: 1px solid $secondary_border_color;
+    color: $secondary_font_color;
+}
+
+.btn__tertiary {
+    min-width: 173px;
+    min-height:35px;
+    background-color: transparent;
+    border: 1px solid $tertiary_border_color;
+    color: $tertiary_font_color;
+}
+
+.btn__filled {
+    min-width: 173px;
+    min-height:35px;
+    background-color: $filled_bg_color;
+    color: $filled_font_color;
+    border: 1px solid $filled_border_color;
 }

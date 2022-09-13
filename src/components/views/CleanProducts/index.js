@@ -19,8 +19,8 @@ export const CleanProducts = () => {
         content={textContent}
         textColor={"white"}
         btnContent={"Shop more"}
-        btnBorderColor={"white"}
-        btnFontColor={"white"}
+        btnClass={"secondary"}
+        icon={false}
       />
     </>
   );

@@ -11,8 +11,8 @@ export const Card = ({
   newprice,
   discount,
   btnContent,
-  btnBorderColor,
-  btnFontColor,
+  btnClass,
+  icon,
 }) => {
   return (
     <figure className={style.card__container}>
@@ -32,11 +32,7 @@ export const Card = ({
           )}
         </div>
       </figcaption>
-      <Button
-        btnContent={btnContent}
-        btnBorderColor={btnBorderColor}
-        btnFontColor={btnFontColor}
-      />
+      <Button btnContent={btnContent} btnClass={btnClass} icon={icon} />
     </figure>
   );
 };

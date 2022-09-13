@@ -12,11 +12,7 @@ export const HeroSection = () => {
           content={`A healthier you from the inside out. We’ve sourced the cleanest ingredients to create a line of clean skin care treatments that leave you feeling your best`}
           textColor={"#354E57"}
         />
-        <Button
-          btnContent={"Shop products"}
-          btnBorderColor={"#354E57"}
-          btnFontColor={"#2E2E22"}
-        />
+        <Button btnContent={"Shop products"} btnClass={"primary"} />
       </div>
 
       <div style={{ width: "40%" }}>

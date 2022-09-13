@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "./components/layout/Layout";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/views/HeroSection";
 import { Explore } from "./components/views/Explore";
@@ -15,29 +14,14 @@ import { Footer } from "./components/Footer";
 function App() {
   return (
     <>
-      <Layout>
-        <Navbar />
-        <HeroSection />
-      </Layout>
-
+      <Navbar />
+      <HeroSection />
       <Explore />
-
-      <Layout>
-        <Popular />
-      </Layout>
-
+      <Popular />
       <CleanProducts />
-
-      <Layout>
-        <TopRated />
-      </Layout>
-
+      <TopRated />
       <NaturalIngredients />
-
-      <Layout>
-        <BestIngredients />
-      </Layout>
-
+      <BestIngredients />
       <LearnMore />
       <JoinSooth />
       <Footer />

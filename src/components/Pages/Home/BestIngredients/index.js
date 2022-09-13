@@ -1,7 +1,7 @@
 import React from "react";
-import ingredients from "../../../assets/data/ingredients.json";
-import { CardIngredients } from "../../general/CardIngredients";
-import { Layout } from "../../layout/Layout";
+import ingredients from "../../../../assets/data/ingredients.json";
+import { CardIngredients } from "../../../general/CardIngredients";
+import { Layout } from "../../../layout/Layout";
 import style from "./bestingredients.module.scss";
 
 export const BestIngredients = () => {

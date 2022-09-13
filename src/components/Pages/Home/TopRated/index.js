@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./toprated.module.scss";
-import { Card } from "../../general/Card";
-import topRatedProducts from "../../../assets/data/toprated.json";
-import { Layout } from "../../layout/Layout";
+import { Card } from "../../../general/Card";
+import topRatedProducts from "../../../../assets/data/toprated.json";
+import { Layout } from "../../../layout/Layout";
 
 export const TopRated = () => {
   return (

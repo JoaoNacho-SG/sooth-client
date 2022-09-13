@@ -1,5 +1,5 @@
 import React from "react";
-import { TextWithImage } from "../../general/TextWithImage";
+import { TextWithImage } from "../../../../components/general/TextWithImage";
 import "./cleanproducts.module.scss";
 
 const image =

@@ -29,7 +29,38 @@ $bg-color: #FFFFFF;
     flex-wrap: wrap;
 
     input {
-        width: 250px;
+        max-width: 250px;
         border: 1px solid $input-outline-color;
     }
 }
+
+@media (max-width: 600px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .title__wrapper {
+        display: flex;
+        justify-content: center;
+        border: none;
+        width: 100%;
+        color: $font-color;
+    }
+
+    .text__wrapper {
+       display: none;
+    }
+  }
+
+  @media (max-width: 330px) {
+    .input__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            height: 30px;
+        }
+    }
+  }

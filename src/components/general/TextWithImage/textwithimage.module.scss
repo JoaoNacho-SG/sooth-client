@@ -18,3 +18,13 @@
 img {
 width: 100%;
 }
+
+@media (max-width: 650px) {
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap:50px;
+    }
+  }

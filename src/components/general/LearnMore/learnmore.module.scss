@@ -29,3 +29,16 @@ $bg-color: #EEF2F4;
     font-size: 30px;
     color: #C6B9B6;
 }
+
+@media (max-width: 490px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+  }

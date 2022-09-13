@@ -1,7 +1,7 @@
 import React from "react";
-import products from "../../../assets/data/products.json";
-import { Card } from "../../general/Card";
-import { Layout } from "../../layout/Layout";
+import products from "../../../../assets/data/products.json";
+import { Card } from "../../../general/Card";
+import { Layout } from "../../../layout/Layout";
 import style from "./popular.module.scss";
 
 export const Popular = () => {

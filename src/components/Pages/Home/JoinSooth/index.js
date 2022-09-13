@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../general/Button";
+import { Button } from "../../../general/Button";
 import style from "./joinsooth.module.scss";
 
 export const JoinSooth = () => {

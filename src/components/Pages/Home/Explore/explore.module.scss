@@ -1,6 +1,7 @@
 .explore__container {
     width: 100vw;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -12,3 +13,15 @@
         margin-top: -5px;
     }
 }
+
+@media (max-width: 350px) {
+    .explore__container {
+        height: auto;
+        h1 {
+            font-size: 18px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+  }

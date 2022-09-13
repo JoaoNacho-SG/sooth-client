@@ -103,3 +103,47 @@ $input-outline-color:#FFFFFF;
     gap: 50px;
     font-size: 25px;
 }
+
+@media (max-width: 600px) {
+    .copyright__container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .links__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+
+  @media (max-width: 530px) {
+
+    .info__container {
+        margin-top: 50px;
+
+        h1 {
+            display: none;
+        }
+
+        p {
+            display: none;
+        }
+    }
+
+    .input__wrapper {
+        display: none;
+    }
+
+
+  }
+
+  @media (max-width: 315px) {
+    .lists__container {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        gap:5px;
+            }
+  }

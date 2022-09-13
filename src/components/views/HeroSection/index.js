@@ -11,6 +11,7 @@ export const HeroSection = () => {
           title={"All Natural Skin Remedies"}
           content={`A healthier you from the inside out. We’ve sourced the cleanest ingredients to create a line of clean skin care treatments that leave you feeling your best`}
           textColor={"#354E57"}
+          titleSize={"48px"}
         />
         <Button btnContent={"Shop products"} btnClass={"primary"} />
       </div>

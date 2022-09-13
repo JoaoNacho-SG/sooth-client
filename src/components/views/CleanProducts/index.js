@@ -18,6 +18,7 @@ export const CleanProducts = () => {
         title={"Clean products that deliver better solutions"}
         content={textContent}
         textColor={"white"}
+        titleSize={"38px"}
         btnContent={"Shop more"}
         btnClass={"secondary"}
         icon={false}

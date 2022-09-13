@@ -10,6 +10,7 @@ export const TextWithImage = ({
   title,
   content,
   textColor,
+  titleSize,
   btnContent,
   btnClass,
   icon,
@@ -21,8 +22,15 @@ export const TextWithImage = ({
         style={{ backgroundColor: `${bgColor}` }}
       >
         <div className={style.wrapper__text}>
-          <InfoText title={title} content={content} textColor={textColor} />
-          <Button btnContent={btnContent} btnClass={btnClass} icon={icon} />
+          <div>
+            <InfoText
+              title={title}
+              content={content}
+              textColor={textColor}
+              titleSize={titleSize}
+            />
+            <Button btnContent={btnContent} btnClass={btnClass} icon={icon} />
+          </div>
         </div>
 
         <div className={style.wrapper__img}>
@@ -43,8 +51,15 @@ export const TextWithImage = ({
         </div>
 
         <div className={style.wrapper__text}>
-          <InfoText title={title} content={content} textColor={textColor} />
-          <Button btnContent={btnContent} btnClass={btnClass} icon={icon} />
+          <div>
+            <InfoText
+              title={title}
+              content={content}
+              textColor={textColor}
+              titleSize={titleSize}
+            />
+            <Button btnContent={btnContent} btnClass={btnClass} icon={icon} />
+          </div>
         </div>
       </section>
     );

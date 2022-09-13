@@ -15,6 +15,7 @@ export const NaturalIngredients = () => {
         title={"All Natural Ingredients."}
         content={textContent}
         textColor={"#2E2E22"}
+        titleSize={"38px"}
         btnContent={"Shop more"}
         btnClass={"tertiary"}
         icon={false}

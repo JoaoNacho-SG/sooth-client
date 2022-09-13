@@ -5,13 +5,15 @@ $filled_border_color: #956A53;
 // button primary
 $primary_border_color: #354E57;
 $primary_font_color: #2E2E22;
-//button secondary
+// button secondary
 $secondary_border_color: #FFFF;
 $secondary_font_color: #F7F5E6;
-//button tertiary
+// button tertiary
 $tertiary_border_color:#956A53;
 $tertiary_font_color:#2E2E22;
-
+// button login
+$login_bg_color: #354E57;
+$login_font_color: #FFFF;
 
 .btn__primary {
     display: flex;
@@ -47,4 +49,14 @@ $tertiary_font_color:#2E2E22;
     background-color: $filled_bg_color;
     color: $filled_font_color;
     border: 1px solid $filled_border_color;
+}
+
+.btn__login {
+    min-width: 300px;
+    min-height:40px;
+    background-color: $login_bg_color;
+    color: $login_font_color;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
 }

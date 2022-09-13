@@ -8,7 +8,7 @@ import { TopRated } from "../../Pages/Home//TopRated";
 import { NaturalIngredients } from "../../Pages/Home//NaturalIngredients";
 import { BestIngredients } from "../../Pages/Home//BestIngredients";
 import { LearnMore } from "../../general/LearnMore";
-import { JoinSooth } from "../../Pages/Home//JoinSooth";
+import { JoinSooth } from "../../general/JoinSooth";
 import { Footer } from "../../Footer";
 
 export const Home = () => {

@@ -2,6 +2,7 @@ import React from "react";
 import style from "./navbar.module.scss";
 import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -15,14 +16,18 @@ export const Navbar = () => {
                 <li>Consultation</li>
               </div>
               <div>
-                <li className={style.navbar__logo}>sooth</li>
+                <Link className={"link"} to={"/"}>
+                  <li className={style.navbar__logo}>sooth</li>
+                </Link>
               </div>
               <div className={style.navbar__content}>
                 <li>
                   <FiSearch />
                 </li>
                 <li>Cart</li>
-                <li>Login</li>
+                <Link className={"link"} to={"/login"}>
+                  <li>Login</li>
+                </Link>
               </div>
             </ul>
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 $font-family: Outfit;
 $bg-color:#F7F7F7;
+$link_font_color: #354E57;
 
 body {
   margin: 0;
@@ -16,4 +17,9 @@ ul {
 
 button:hover {
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: $link_font_color;
 }

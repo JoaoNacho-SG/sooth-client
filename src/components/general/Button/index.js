@@ -29,4 +29,8 @@ export const Button = ({ btnContent, btnClass, icon }) => {
   if (btnClass === "filled") {
     return <button className={style.btn__filled}>{btnContent}</button>;
   }
+
+  if (btnClass === "login") {
+    return <button className={style.btn__login}>{btnContent}</button>;
+  }
 };

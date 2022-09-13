@@ -10,6 +10,7 @@ import { NaturalIngredients } from "./components/views/NaturalIngredients";
 import { BestIngredients } from "./components/views/BestIngredients";
 import { LearnMore } from "./components/general/LearnMore";
 import { JoinSooth } from "./components/views/JoinSooth";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
 
       <LearnMore />
       <JoinSooth />
-
+      <Footer />
       {/* Make routes here */}
       <Routes>
         <Route />

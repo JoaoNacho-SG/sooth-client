@@ -26,7 +26,7 @@ $bg-color: #FFFFFF;
 
 .input__wrapper {
     display: flex;
-    
+    flex-wrap: wrap;
 
     input {
         width: 250px;

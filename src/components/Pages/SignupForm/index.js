@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 export const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,18 +16,6 @@ export const SignupForm = () => {
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>REGISTER</h1>
-          <input
-            type="text"
-            required
-            placeholder="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input
-            type="text"
-            required
-            placeholder="Last Name"
-            onChange={(e) => setLastName(e.target.value)}
-          />
 
           <input
             type="email"

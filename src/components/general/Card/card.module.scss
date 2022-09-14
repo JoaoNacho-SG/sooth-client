@@ -13,10 +13,18 @@
     h4 {
 margin-bottom: -10px;
 font-weight: 100;
+overflow: hidden;
+max-width: 75ch;
+text-overflow: clip;
+white-space: nowrap;
     }
 
     p {
-        font-size: 12px;
+    font-size: 12px;
+    overflow:hidden;
+    max-width: 25ch;
+    text-overflow:ellipsis;
+    white-space: nowrap;
     }
 }
 

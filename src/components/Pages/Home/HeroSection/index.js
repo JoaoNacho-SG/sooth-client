@@ -4,14 +4,17 @@ import { Button } from "../../../general/Button";
 import style from "./herosection.module.scss";
 import { Layout } from "../../../layout/Layout";
 import { getSingleProduct } from "../../../../utils/api";
+import { Spinner } from "../../../general/Spinner";
 
 export const HeroSection = () => {
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       const productFromApi = await getSingleProduct();
       setProduct(productFromApi.data);
+      setLoading(false);
     })();
   }, []);
 
@@ -29,9 +32,17 @@ export const HeroSection = () => {
             <Button btnContent={"Shop products"} btnClass={"primary"} />
           </div>
 
-          <div className={style.herosection__wrapper}>
-            <img src={product.images[0]} alt="random product" />
-          </div>
+          {loading && (
+            <div className={style.herosection__wrapper}>
+              <Spinner />
+            </div>
+          )}
+
+          {product.images && (
+            <div className={style.herosection__wrapper}>
+              <img src={product.images[0]} alt="random product" />
+            </div>
+          )}
         </section>
       </Layout>
     </>

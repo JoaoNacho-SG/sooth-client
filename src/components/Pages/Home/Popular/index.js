@@ -3,6 +3,7 @@ import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
 import style from "./popular.module.scss";
 import { getFourProducts } from "../../../../utils/api";
+import { Link } from "react-router-dom";
 
 export const Popular = () => {
   const [popularProducts, setPopularProducts] = useState([]);
@@ -38,6 +39,10 @@ export const Popular = () => {
                     btnContent={`Add to cart`}
                     btnClass={"primary"}
                   />
+
+                  <Link className="link" to={`/product/${product.id}`}>
+                    <p className={style.details}>more details</p>
+                  </Link>
                 </article>
               );
             })}

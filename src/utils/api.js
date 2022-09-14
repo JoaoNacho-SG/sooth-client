@@ -11,3 +11,7 @@ export const getFourProducts = () => {
 export const getSingleProduct = () => {
   return axios.get("https://dummyjson.com/products/17");
 };
+
+export const getProduct = (id) => {
+  return axios.get(`https://dummyjson.com/products/${id}`);
+};

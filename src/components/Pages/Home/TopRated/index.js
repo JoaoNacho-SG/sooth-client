@@ -3,6 +3,7 @@ import style from "./toprated.module.scss";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
 import { getEightProducts } from "../../../../utils/api";
+import { Link } from "react-router-dom";
 
 export const TopRated = () => {
   const [topRated, setTopRated] = useState([]);
@@ -38,6 +39,9 @@ export const TopRated = () => {
                     btnClass={"primary"}
                     icon={true}
                   />
+                  <Link className="link" to={`/product/${product.id}`}>
+                    <p className={style.details}>more details</p>
+                  </Link>
                 </article>
               );
             })}

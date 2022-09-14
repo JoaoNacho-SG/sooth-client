@@ -1,10 +1,19 @@
-import React from "react";
-import products from "../../../../assets/data/products.json";
+import React, { useState, useEffect } from "react";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
 import style from "./popular.module.scss";
+import { getFourProducts } from "../../../../utils/api";
 
 export const Popular = () => {
+  const [popularProducts, setPopularProducts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const productsFromApi = await getFourProducts();
+      setPopularProducts(productsFromApi.data.products);
+    })();
+  }, []);
+
   return (
     <>
       <Layout>
@@ -15,11 +24,11 @@ export const Popular = () => {
           </div>
 
           <div className={style.popular__container}>
-            {products.map((product, index) => {
+            {popularProducts.map((product) => {
               return (
-                <article key={index}>
+                <article key={product.id}>
                   <Card
-                    img={product.img}
+                    img={product.thumbnail}
                     title={product.title}
                     description={product.description}
                     price={product.price}

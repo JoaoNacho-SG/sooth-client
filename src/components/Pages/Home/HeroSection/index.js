@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { InfoText } from "../../../general/InfoText";
 import { Button } from "../../../general/Button";
 import style from "./herosection.module.scss";
 import { Layout } from "../../../layout/Layout";
+import { getSingleProduct } from "../../../../utils/api";
 
 export const HeroSection = () => {
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      const productFromApi = await getSingleProduct();
+      setProduct(productFromApi.data);
+    })();
+  }, []);
+
   return (
     <>
       <Layout>
@@ -20,12 +30,7 @@ export const HeroSection = () => {
           </div>
 
           <div className={style.herosection__wrapper}>
-            <img
-              src={
-                "https://img.freepik.com/premium-vector/white-cosmetic-bottle-cream-tube-cosmetic-serum-package-template-blank-toothpaste-packaging-design-body-ointment-flacon-face-moisturizer-essence-dispenser_83194-1503.jpg?w=2000"
-              }
-              alt="bottleimg"
-            />
+            <img src={product.images[0]} alt="random product" />
           </div>
         </section>
       </Layout>

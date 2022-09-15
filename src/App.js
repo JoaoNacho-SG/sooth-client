@@ -3,7 +3,6 @@ import { Login } from "./components/views/Login";
 import { Signup } from "./components/views/Signup";
 import { Home } from "./components/views/Home";
 import { Product } from "./components/views/Product";
-// import { ToastContainer } from "react-toastify";
 
 function App() {
   return (

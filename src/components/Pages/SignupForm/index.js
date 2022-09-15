@@ -1,26 +1,49 @@
 import React, { useState } from "react";
 import style from "./signupform.module.scss";
 import { Button } from "../../general/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { register } from "./../../../utils/api";
-// import { toast } from "react-toastify";
+import { auth } from "../../../utils/firebase-config";
+import {
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 export const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [helper, setHelper] = useState(false);
   const [passVisible, setPassVisible] = useState(false);
+  const [userInSession, setUserInSession] = useState({});
 
+  const navigate = useNavigate();
+
+  //Create Account util
+  const register = async (userAuth, userEmail, userPassword) => {
+    try {
+      await createUserWithEmailAndPassword(userAuth, userEmail, userPassword);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUserInSession(currentUser);
+  });
+
+  //Create account after submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await register(email, password);
-    console.log(user);
-    // toast.success("User created");
+    await register(auth, email, password);
+    navigate("/");
   };
 
   return (
     <section>
+      {userInSession && (
+        <h1 style={{ alignSelf: "center" }}>{userInSession.email}</h1>
+      )}
+
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>REGISTER</h1>

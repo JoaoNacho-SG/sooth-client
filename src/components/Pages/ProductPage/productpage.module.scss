@@ -51,12 +51,43 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
+    width: 400px;
 
     input {
-        width: 15px;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid $title_color;
     }
     input::placeholder {
         text-align: center;
+    }
+}
+
+.button_outlined {
+    width: 34px;
+    height: 34px;
+background-color: transparent;
+border: 1px solid $title_color;
+}
+
+@media (max-width: 645px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        margin-bottom: 100px;
+    }
+
+    .counter__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 200px;
+    }
+
+    .text__wrapper {
+        width: 200px;
     }
 }

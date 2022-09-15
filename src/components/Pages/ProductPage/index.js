@@ -1,14 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../../utils/api";
 import { Button } from "../../general/Button";
 import { Rating } from "../../general/Rating";
 import style from "./productpage.module.scss";
 
+const initialState = { count: 0 };
+
+const counter = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+};
+
 export const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [counter, setCounter] = useState(0);
+  const [state, dispatch] = useReducer(counter, initialState);
 
   useEffect(() => {
     (async () => {
@@ -37,12 +50,25 @@ export const ProductPage = () => {
             <p>
               <span>{product?.description}</span>
             </p>
+            <p>
+              <span>Quantity</span>
+            </p>
 
             <div className={style.counter__wrapper}>
               <div>
-                <button onClick={() => setCounter(counter - 1)}>-</button>
-                <input type="number" placeholder={`${counter}`} />
-                <button onClick={() => setCounter(counter + 1)}>+</button>
+                <button
+                  className={style.button_outlined}
+                  onClick={() => dispatch({ type: "decrement" })}
+                >
+                  -
+                </button>
+                <input type="number" disabled placeholder={`${state.count}`} />
+                <button
+                  className={style.button_outlined}
+                  onClick={() => dispatch({ type: "increment" })}
+                >
+                  +
+                </button>
               </div>
               <div>
                 <Button

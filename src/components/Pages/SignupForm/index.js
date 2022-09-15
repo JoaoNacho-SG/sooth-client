@@ -3,6 +3,8 @@ import style from "./signupform.module.scss";
 import { Button } from "../../general/Button";
 import { Link } from "react-router-dom";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { register } from "./../../../utils/api";
+// import { toast } from "react-toastify";
 
 export const SignupForm = () => {
   const [email, setEmail] = useState("");
@@ -10,8 +12,11 @@ export const SignupForm = () => {
   const [helper, setHelper] = useState(false);
   const [passVisible, setPassVisible] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = await register(email, password);
+    console.log(user);
+    // toast.success("User created");
   };
 
   return (

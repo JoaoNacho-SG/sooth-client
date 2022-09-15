@@ -5,16 +5,19 @@ import { Button } from "../../general/Button";
 import { Rating } from "../../general/Rating";
 import style from "./productpage.module.scss";
 
-const initialState = { count: 0 };
+const initialState = { count: 1 };
 
 const counter = (state, action) => {
   switch (action.type) {
     case "increment":
       return { count: state.count + 1 };
     case "decrement":
+      if (state.count <= 1) {
+        return { count: 1 };
+      }
       return { count: state.count - 1 };
     default:
-      throw new Error();
+      return;
   }
 };
 

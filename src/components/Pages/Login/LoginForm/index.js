@@ -31,7 +31,7 @@ export const LoginForm = () => {
             <input
               type={!passVisible ? "password" : "text"}
               required
-              title="minimum 8 characters, 1 uppercase, 1 lowercase, 1 number"
+              title="Password must have at least 8 characters, 1 uppercase, 1 lowercase and 1 number."
               pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}

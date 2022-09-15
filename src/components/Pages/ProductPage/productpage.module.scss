@@ -57,7 +57,8 @@ input::-webkit-inner-spin-button {
         width: 30px;
         height: 30px;
         background-color: transparent;
-        border: 1px solid $title_color;
+        border-bottom: 1px solid $title_color;
+        border-top:1px solid $title_color;
     }
     input::placeholder {
         text-align: center;

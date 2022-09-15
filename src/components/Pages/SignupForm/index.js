@@ -7,6 +7,7 @@ import { auth } from "../../../utils/firebase-config";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 export const SignupForm = () => {
@@ -31,9 +32,16 @@ export const SignupForm = () => {
     setUserInSession(currentUser);
   });
 
+  //Signout util
+  const logout = async () => {
+    await signOut(auth);
+  };
+
   //Create account after submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setEmail("");
+    setPassword("");
     await register(auth, email, password);
     navigate("/");
   };
@@ -41,7 +49,10 @@ export const SignupForm = () => {
   return (
     <section>
       {userInSession && (
-        <h1 style={{ alignSelf: "center" }}>{userInSession.email}</h1>
+        <div style={{ textAlign: "center" }}>
+          <h1>Hello {userInSession?.email}</h1>
+          <button onClick={logout}>Sign out</button>
+        </div>
       )}
 
       <form onSubmit={handleSubmit}>

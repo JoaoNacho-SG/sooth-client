@@ -15,7 +15,3 @@ export const getSingleProduct = () => {
 export const getProduct = (id) => {
   return axios.get(`https://dummyjson.com/products/${id}`);
 };
-//Firebase
-export const login = async () => {};
-
-export const logout = async () => {};

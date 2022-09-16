@@ -33,4 +33,12 @@ export const Button = ({ btnContent, btnClass, icon }) => {
   if (btnClass === "login") {
     return <button className={style.btn__login}>{btnContent}</button>;
   }
+
+  if (btnClass === "disabled") {
+    return (
+      <button disabled className={style.btn__disabled}>
+        {btnContent}
+      </button>
+    );
+  }
 };

@@ -27,6 +27,10 @@ export const ProductPage = () => {
   const [state, dispatch] = useReducer(counter, initialState);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     (async () => {
       const productFromApi = await getProduct(id);
       //   console.log(productFromApi.status);

@@ -23,13 +23,6 @@ span {
     text-decoration: underline;
 }
 }
-// form:invalid {
-//     button {
-//         background-color: rgba(211, 211, 211, 0.71);
-//         color: rgb(168, 168, 168);
-//         pointer-events: none;
-//     }
-// }
 
 input::placeholder {
     padding-left: 10px;
@@ -41,13 +34,6 @@ input::placeholder {
         color: $font_color;
         font-size: 12px;
 }
-
-// .error__text {
-//     margin: 0;
-//     text-align: center;
-//     color: rgb(255, 82, 82);
-//     font-size: 14px;
-// }
 
 .input__password {
     position: relative;

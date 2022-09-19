@@ -16,9 +16,12 @@ export const LoginForm = () => {
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  // const [error, setError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
   const [userInSession, setUserInSession] = useState({});
+
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
   const navigate = useNavigate();
 
@@ -44,17 +47,15 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //Validate user inputs
-    if (email === "" || password === "") {
+    if (!email.length || !password.length) {
+      setPasswordError("Required!");
+      setEmailError("Required!");
       return;
-      // setError("Please fill both fields");
     }
 
     if (
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      ) === false &&
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password) ===
-        false
+      emailRegex.test(email) === false &&
+      passwordRegex.test(password) === false
     ) {
       setEmailError("Invalid email address");
       setPasswordError(
@@ -63,20 +64,13 @@ export const LoginForm = () => {
       return;
     }
 
-    if (
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      ) === false
-    ) {
+    if (emailRegex.test(email) === false) {
       setEmailError("Invalid email address.");
       setPasswordError("");
       return;
     }
 
-    if (
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password) ===
-      false
-    ) {
+    if (passwordRegex.test(password) === false) {
       setPasswordError(
         "Password must have at least 8 characters, 1 uppercase, 1 lowercase and 1 number."
       );
@@ -110,8 +104,6 @@ export const LoginForm = () => {
 
           <input
             type="email"
-            required
-            // pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
             value={email}
             className={
               emailError ? style.field__input_error : style.field__input_normal
@@ -127,14 +119,12 @@ export const LoginForm = () => {
           <div className={style.input__password}>
             <input
               type={!passVisible ? "password" : "text"}
-              required
               value={password}
               className={
                 passwordError
                   ? style.field__input_error
                   : style.field__input_normal
               }
-              // pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -150,8 +140,6 @@ export const LoginForm = () => {
               {!passVisible ? <BsEyeFill /> : <BsEyeSlashFill />}
             </div>
           </div>
-
-          {/* {error && <p className={style.error__text}>{error}</p>} */}
 
           {!email.length || !password.length ? (
             <Button

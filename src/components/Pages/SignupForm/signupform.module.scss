@@ -9,7 +9,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 margin: auto;
-gap: 25px;
+gap: 28px;
 
 h1 {
     color: $font_color;
@@ -50,7 +50,7 @@ input::placeholder {
     color: red;
     position: absolute;
     width: 300px;
-    margin-top:2px;
+    margin-top: -1px;
 }
 
 .field__input_normal {

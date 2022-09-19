@@ -28,7 +28,15 @@ export const LoginForm = () => {
       authenticateUser();
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      if (error.message.includes("wrong-password")) {
+        setPasswordError("Invalid email address or password.");
+        setEmailError("");
+      }
+
+      if (error.message.includes("user-not-found")) {
+        setEmailError("User not found.");
+        setPasswordError("");
+      }
     }
   };
 

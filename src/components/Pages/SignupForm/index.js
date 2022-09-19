@@ -15,6 +15,8 @@ export const SignupForm = () => {
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
   const { storeUser, authenticateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -30,8 +32,10 @@ export const SignupForm = () => {
       authenticateUser();
       navigate("/");
     } catch (error) {
-      console.log("error----->", error);
-      // setError(error.message);
+      if (error.message.includes("email-already-in-use")) {
+        setEmailError("Email is already registered.");
+        setConfirmPassword("");
+      }
     }
   };
 
@@ -78,6 +82,13 @@ export const SignupForm = () => {
       setEmailError("");
       return;
     }
+
+    if (password !== confirmPassword) {
+      setConfirmPasswordError("Passwords don't match.");
+      setEmailError("");
+      setPasswordError("");
+      return;
+    }
     //If all input matches criteria, continue
     setPasswordError("");
     setEmailError("");
@@ -91,27 +102,30 @@ export const SignupForm = () => {
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>REGISTER</h1>
+          <div>
+            <input
+              type="email"
+              value={email}
+              className={
+                emailError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <input
-            type="email"
-            value={email}
-            className={
-              emailError ? style.field__input_error : style.field__input_normal
-            }
-            placeholder="Email Address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          {emailError && (
-            <p className={style.input__error_message}>{emailError}</p>
-          )}
+            {emailError && (
+              <p className={style.input__error_message}>{emailError}</p>
+            )}
+          </div>
 
           <div className={style.input__password}>
             <input
               type={!passVisible ? "password" : "text"}
               value={password}
               className={
-                passwordError
+                passwordError || confirmPasswordError
                   ? style.field__input_error
                   : style.field__input_normal
               }
@@ -131,7 +145,27 @@ export const SignupForm = () => {
             </div>
           </div>
 
-          {!email.length || !password.length ? (
+          <div className={style.input__password}>
+            <input
+              type="password"
+              value={confirmPassword}
+              className={
+                confirmPasswordError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
+              placeholder="Confirm Password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+
+            {confirmPasswordError && (
+              <p className={style.input__error_message}>
+                {confirmPasswordError}
+              </p>
+            )}
+          </div>
+
+          {!email.length || !password.length || !confirmPassword.length ? (
             <Button
               btnContent={"Create Account"}
               btnClass={"disabled"}

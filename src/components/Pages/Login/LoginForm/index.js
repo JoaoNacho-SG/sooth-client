@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Button } from "../../../general/Button";
 import style from "./loginform.module.scss";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "./../../../../utils/firebase-config";
+import { UserContext } from "../../../../utils/user.context";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -17,31 +14,32 @@ export const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
-  const [userInSession, setUserInSession] = useState({});
+  const { storeUser, authenticateUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-  const navigate = useNavigate();
-
   //Login util
   const login = async (userAuth, userEmail, userPassword) => {
     try {
       await signInWithEmailAndPassword(userAuth, userEmail, userPassword);
+      authenticateUser();
       navigate("/");
     } catch (error) {
       console.log(error.message);
     }
   };
+
   //Grab user info and save it in state
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        setUserInSession(currentUser);
+        storeUser(currentUser.email);
       });
     })();
-  }, []);
+  }, [storeUser]);
 
   //Login after submit form
   const handleSubmit = async (e) => {
@@ -85,19 +83,8 @@ export const LoginForm = () => {
     await login(auth, email, password);
   };
 
-  //Signout util
-  const logout = async () => {
-    await signOut(auth);
-  };
-
   return (
     <section>
-      {userInSession && (
-        <div style={{ textAlign: "center" }}>
-          <h1>Hello {userInSession?.email}</h1>
-          <button onClick={logout}>Sign out</button>
-        </div>
-      )}
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>LOGIN</h1>

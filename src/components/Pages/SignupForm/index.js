@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../utils/user.context";
 import style from "./signupform.module.scss";
 import { Button } from "../../general/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +8,6 @@ import { auth } from "../../../utils/firebase-config";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
-  signOut,
 } from "firebase/auth";
 
 export const SignupForm = () => {
@@ -15,39 +15,34 @@ export const SignupForm = () => {
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  // const [error, setError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
-  const [userInSession, setUserInSession] = useState(null);
+  const { storeUser, authenticateUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-  const navigate = useNavigate();
-
   //Create Account util
   const register = async (userAuth, userEmail, userPassword) => {
     try {
       await createUserWithEmailAndPassword(userAuth, userEmail, userPassword);
+      authenticateUser();
       navigate("/");
     } catch (error) {
       console.log("error----->", error);
       // setError(error.message);
     }
   };
+
   //Grab user info and save it in state
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        setUserInSession(currentUser);
+        storeUser(currentUser.email);
       });
     })();
-  }, []);
-
-  //Signout util
-  const logout = async () => {
-    await signOut(auth);
-  };
+  }, [storeUser]);
 
   //Create account after submit form
   const handleSubmit = async (e) => {
@@ -93,13 +88,6 @@ export const SignupForm = () => {
 
   return (
     <section>
-      {userInSession && (
-        <div style={{ textAlign: "center" }}>
-          <h1>Hello {userInSession?.email}</h1>
-          <button onClick={logout}>Sign out</button>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>REGISTER</h1>
@@ -142,8 +130,6 @@ export const SignupForm = () => {
               {!passVisible ? <BsEyeFill /> : <BsEyeSlashFill />}
             </div>
           </div>
-
-          {/* {error && <p className={style.error__text}>{error}</p>} */}
 
           {!email.length || !password.length ? (
             <Button

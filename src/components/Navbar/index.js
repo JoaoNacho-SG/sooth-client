@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./navbar.module.scss";
 import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../utils/user.context";
+import { signOut } from "firebase/auth";
+import { auth } from "../../utils/firebase-config";
 
 export const Navbar = () => {
+  const { isLoggedIn, logoutUser } = useContext(UserContext);
+  //Signout util from Firebase
+  const logout = async () => {
+    await signOut(auth);
+  };
+
   return (
     <>
       <Layout>
@@ -25,9 +34,13 @@ export const Navbar = () => {
                   <FiSearch />
                 </li>
                 <li>Cart</li>
-                <Link className={"link"} to={"/login"}>
-                  <li>Login</li>
-                </Link>
+                {!isLoggedIn ? (
+                  <Link className={"link"} to={"/login"}>
+                    <li>Login</li>
+                  </Link>
+                ) : (
+                  <li onClick={(logout, logoutUser)}>Logout</li>
+                )}
               </div>
             </ul>
 

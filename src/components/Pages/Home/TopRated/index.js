@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import style from "./toprated.module.scss";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
-import { getEightProducts } from "../../../../utils/api";
 import { Link } from "react-router-dom";
 
-export const TopRated = () => {
-  const [topRated, setTopRated] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const productsFromApi = await getEightProducts();
-      setTopRated(productsFromApi.data.products);
-    })();
-  }, []);
-
+export const TopRated = ({ topRatedProducts }) => {
   return (
     <>
       <Layout>
@@ -25,16 +15,14 @@ export const TopRated = () => {
           </div>
 
           <div className={style.toprated__container}>
-            {topRated.map((product) => {
+            {topRatedProducts.map((product) => {
               return (
                 <article key={product.id}>
                   <Card
-                    img={product.thumbnail}
+                    img={product.image}
                     title={product.title}
                     description={product.description}
                     price={product.price}
-                    newprice={product?.discountPercentage}
-                    discount={product.discount}
                     btnContent={`Add to cart`}
                     btnClass={"primary"}
                     icon={true}

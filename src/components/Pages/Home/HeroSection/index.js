@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { InfoText } from "../../../general/InfoText";
 import { Button } from "../../../general/Button";
 import style from "./herosection.module.scss";
 import { Layout } from "../../../layout/Layout";
-import { getSingleProduct } from "../../../../utils/api";
 import { Spinner } from "../../../general/Spinner";
 
-export const HeroSection = () => {
-  const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(true);
+export const HeroSection = ({ product }) => {
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      const productFromApi = await getSingleProduct();
-      setProduct(productFromApi.data);
-      setLoading(false);
-    })();
-  }, []);
+  if (!product) {
+    return (
+      <div className={style.herosection__wrapper}>
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -32,17 +30,9 @@ export const HeroSection = () => {
             <Button btnContent={"Shop products"} btnClass={"primary"} />
           </div>
 
-          {loading && (
-            <div className={style.herosection__wrapper}>
-              <Spinner />
-            </div>
-          )}
-
-          {product.images && (
-            <div className={style.herosection__wrapper}>
-              <img src={product.images[0]} alt="random product" />
-            </div>
-          )}
+          <div className={style.herosection__wrapper}>
+            <img src={product?.image} alt="random product" />
+          </div>
         </section>
       </Layout>
     </>

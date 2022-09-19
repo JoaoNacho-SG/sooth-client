@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
 import style from "./popular.module.scss";
-import { getFourProducts } from "../../../../utils/api";
 import { Link } from "react-router-dom";
 
-export const Popular = () => {
-  const [popularProducts, setPopularProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const productsFromApi = await getFourProducts();
-      setPopularProducts(productsFromApi.data.products);
-    })();
-  }, []);
-
+export const Popular = ({ popularProducts }) => {
   return (
     <>
       <Layout>
@@ -29,12 +19,10 @@ export const Popular = () => {
               return (
                 <article key={product.id}>
                   <Card
-                    img={product.thumbnail}
+                    img={product.image}
                     title={product.title}
                     description={product.description}
                     price={product.price}
-                    newprice={product?.newprice}
-                    discount={product.discount}
                     icon={true}
                     btnContent={`Add to cart`}
                     btnClass={"primary"}

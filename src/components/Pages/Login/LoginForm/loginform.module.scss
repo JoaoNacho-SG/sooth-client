@@ -9,18 +9,11 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 margin: auto;
-gap:15px;
+gap: 15px;
 
 h1 {
     color: $font_color;
     margin-bottom: 50px;
-}
-
-input {
-    min-width: 300px;
-    min-height: 40px;
-    border-radius: 3px;
-    border: 1px solid $input_border;
 }
 
 button {
@@ -30,13 +23,6 @@ span {
     text-decoration: underline;
 }
 }
-// form:invalid {
-//     button {
-//         background-color: rgba(211, 211, 211, 0.71);
-//         color: rgb(168, 168, 168);
-//         pointer-events: none;
-//     }
-// }
 
 input::placeholder {
     padding-left: 10px;
@@ -49,13 +35,6 @@ input::placeholder {
         font-size: 12px;
 }
 
-.error__text {
-    margin: 0;
-    text-align: center;
-    color: rgb(255, 82, 82);
-    font-size: 14px;
-}
-
 .input__password {
     position: relative;
 }
@@ -64,4 +43,26 @@ input::placeholder {
     position: absolute;
     right:10px;
     bottom: 10px;
+}
+
+.input__error_message {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    width: 300px;
+    margin-top: 2px;;
+}
+
+.field__input_normal {
+    min-width: 300px;
+    min-height: 40px;
+    border-radius: 3px;
+    border: 1px solid $input_border;
+}
+
+.field__input_error {
+    border: 2px solid red;
+    min-width: 300px;
+    min-height: 40px;
+    border-radius: 3px;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../utils/user.context";
 import style from "./signupform.module.scss";
 import { Button } from "../../general/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,67 +8,90 @@ import { auth } from "../../../utils/firebase-config";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
-  signOut,
 } from "firebase/auth";
 
 export const SignupForm = () => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
-  const [userInSession, setUserInSession] = useState(null);
-
+  const { storeUser, authenticateUser } = useContext(UserContext);
   const navigate = useNavigate();
+
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
   //Create Account util
   const register = async (userAuth, userEmail, userPassword) => {
     try {
       await createUserWithEmailAndPassword(userAuth, userEmail, userPassword);
+      authenticateUser();
       navigate("/");
     } catch (error) {
-      console.log("error----->", error);
-      setError(error.message);
+      if (error.message.includes("email-already-in-use")) {
+        setEmailError("Email is already registered.");
+        setConfirmPassword("");
+      }
     }
   };
+
   //Grab user info and save it in state
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        setUserInSession(currentUser);
+        storeUser(currentUser.email);
       });
     })();
-  }, []);
-
-  //Signout util
-  const logout = async () => {
-    await signOut(auth);
-  };
+  }, [storeUser]);
 
   //Create account after submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
     //Validate user inputs
-    if (email === "" || password === "") {
-      return setError("Please fill both fields");
+    if (!email.length || !password.length) {
+      setPasswordError("Required!");
+      setEmailError("Required!");
+      return;
     }
 
     if (
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      ) === false
+      emailRegex.test(email) === false &&
+      passwordRegex.test(password) === false
     ) {
-      return setError("Invalid email address");
-    }
-
-    if (
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password) ===
-      false
-    ) {
-      return setError(
+      setEmailError("Invalid email address");
+      setPasswordError(
         "Password must have at least 8 characters, 1 uppercase, 1 lowercase and 1 number."
       );
+      return;
+    }
+
+    if (emailRegex.test(email) === false) {
+      setEmailError("Invalid email address.");
+      setPasswordError("");
+      return;
+    }
+
+    if (passwordRegex.test(password) === false) {
+      setPasswordError(
+        "Password must have at least 8 characters, 1 uppercase, 1 lowercase and 1 number."
+      );
+      setEmailError("");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setConfirmPasswordError("Passwords don't match.");
+      setEmailError("");
+      setPasswordError("");
+      return;
     }
     //If all input matches criteria, continue
+    setPasswordError("");
+    setEmailError("");
     setEmail("");
     setPassword("");
     await register(auth, email, password);
@@ -75,34 +99,44 @@ export const SignupForm = () => {
 
   return (
     <section>
-      {userInSession && (
-        <div style={{ textAlign: "center" }}>
-          <h1>Hello {userInSession?.email}</h1>
-          <button onClick={logout}>Sign out</button>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <div className={style.form__container}>
           <h1>REGISTER</h1>
+          <div>
+            <input
+              type="email"
+              value={email}
+              className={
+                emailError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <input
-            type="email"
-            required
-            // pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
-            placeholder="Email Address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+            {emailError && (
+              <p className={style.input__error_message}>{emailError}</p>
+            )}
+          </div>
 
           <div className={style.input__password}>
             <input
               type={!passVisible ? "password" : "text"}
-              required
-              // title="Password must have at least 8 characters, 1 uppercase, 1 lowercase and 1 number."
-              // pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+              value={password}
+              className={
+                passwordError || confirmPasswordError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            {passwordError && (
+              <p className={style.input__error_message}>{passwordError}</p>
+            )}
+
             <div
               className={style.input__visibility}
               onClick={() => setPassVisible(!passVisible)}
@@ -111,9 +145,27 @@ export const SignupForm = () => {
             </div>
           </div>
 
-          {error && <p className={style.error__text}>{error}</p>}
+          <div className={style.input__password}>
+            <input
+              type="password"
+              value={confirmPassword}
+              className={
+                confirmPasswordError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
+              placeholder="Confirm Password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
 
-          {!email.length && !password.length ? (
+            {confirmPasswordError && (
+              <p className={style.input__error_message}>
+                {confirmPasswordError}
+              </p>
+            )}
+          </div>
+
+          {!email.length || !password.length || !confirmPassword.length ? (
             <Button
               btnContent={"Create Account"}
               btnClass={"disabled"}

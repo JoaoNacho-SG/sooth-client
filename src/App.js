@@ -4,10 +4,13 @@ import { Signup } from "./components/views/Signup";
 import { Home } from "./components/views/Home";
 import { Product } from "./components/views/Product";
 import { IsPrivate } from "./utils/isPrivate";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -21,6 +24,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }

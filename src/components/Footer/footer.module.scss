@@ -122,22 +122,8 @@ $input-outline-color:#FFFFFF;
 
     .info__container {
         margin-top: 50px;
-
-        h1 {
-            display: none;
-        }
-
-        p {
-            display: none;
-        }
-    }
-
-    .input__wrapper {
-        display: none;
-    }
-
-
   }
+}
 
   @media (max-width: 315px) {
     .lists__container {

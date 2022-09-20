@@ -6,6 +6,10 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    li {
+        cursor: pointer;
+    }
 }
 
 .navbar__content {

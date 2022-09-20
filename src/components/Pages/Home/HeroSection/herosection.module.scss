@@ -7,23 +7,30 @@ gap: 50px;
 height: calc(100vh - 84px);
 }
 
-.herosection__wrapper{
+.herosection__text_wrapper{
   width: 40%;
-  img {
-    width: 70%;
-}
 }
 
-@media (max-width: 650px) {
-    .herosection__container  {
-      height: auto;
-    }
+
+.herosection__img_wrapper {
+  display: flex;
+  justify-content: center;
+width: 40%;
+}
+
+.herosection__img {
+  width: 60%;
+}
+
+@media (max-width: 550px) {
+  .herosection__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
   }
 
-  @media (max-width: 350px) {
-    .herosection__container {
-      p {
-        display: none;
-      }
-    }
+  .herosection__img_wrapper {
+    align-self: center;
   }
+}

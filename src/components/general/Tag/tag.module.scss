@@ -1,0 +1,29 @@
+$bg_color: #F7F7F7;
+$font_color_new: #354E57;
+$font_color_discount: #A67744;
+
+.tag__wrapper_new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 28px;
+    background-color: $bg_color;
+    color: $font_color_new;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.tag__wrapper_discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 59px;
+    height: 28px;
+    background-color: $bg_color;
+    color: $font_color_discount;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
+import { Tag } from "../Tag";
 import style from "./card.module.scss";
-// import { calcPercentage } from "../../../utils/percentage";
 
 export const Card = ({
   img,
@@ -13,9 +13,18 @@ export const Card = ({
   btnContent,
   btnClass,
   icon,
+  tagCategory,
 }) => {
   return (
     <figure className={style.card__container}>
+      {tagCategory === "jewelery" && (
+        <Tag tagDiscount={false} tagContent={"New!"} />
+      )}
+
+      {tagCategory === "women" && (
+        <Tag tagDiscount={true} tagContent={"15% off"} />
+      )}
+
       <img src={img} alt={title} />
       <figcaption>
         <h4>{title}</h4>

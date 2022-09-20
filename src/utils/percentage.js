@@ -1,7 +1,9 @@
-// export const calcPercentage = (price, percentage) => {
-//   const discountValue = (Number(`${percentage}`) / 100) * Number(`${price}`);
+export const calcPercentage = (price, percentage) => {
+  const percent = Number(percentage);
+  const totalPrice = Number(price);
 
-//   const priceWithDiscount = Number(`${price}`) - discountValue;
+  const valueToSubtract = (percent * totalPrice) / 100;
+  const priceWithDiscount = totalPrice - valueToSubtract;
 
-//   return Number(priceWithDiscount);
-// };
+  return priceWithDiscount.toFixed(2);
+};

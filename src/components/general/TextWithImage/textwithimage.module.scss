@@ -19,12 +19,26 @@ img {
 width: 100%;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 501px) {
     .container {
+        margin: 0;
       display: flex;
       justify-content: center;
       flex-direction: column;
       text-align: center;
       gap:50px;
+
+    button {
+        margin-bottom: 50px;
+    }
+    }
+
+    .wrapper__img {
+        width: 100%;
+    }
+
+    .wrapper__text {
+        text-align: left;
+        
     }
   }

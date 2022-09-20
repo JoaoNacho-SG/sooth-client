@@ -10,3 +10,10 @@
         font-size: 12px;
     }
 }
+
+@media(max-width: 501px) {
+    .article__text{
+        text-align: left;
+        width: 300px;
+    }
+}

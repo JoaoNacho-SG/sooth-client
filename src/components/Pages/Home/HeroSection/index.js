@@ -3,19 +3,8 @@ import { InfoText } from "../../../general/InfoText";
 import { Button } from "../../../general/Button";
 import style from "./herosection.module.scss";
 import { Layout } from "../../../layout/Layout";
-import { Spinner } from "../../../general/Spinner";
 
 export const HeroSection = ({ product }) => {
-  // const [loading, setLoading] = useState(true);
-
-  if (!product) {
-    return (
-      <div className={style.herosection__wrapper}>
-        <Spinner />
-      </div>
-    );
-  }
-
   return (
     <>
       <Layout>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "../../Navbar";
 import { HeroSection } from "../../Pages/Home/HeroSection";
 import { Explore } from "../../Pages/Home//Explore";
 import { Popular } from "../../Pages/Home//Popular";
@@ -8,8 +7,6 @@ import { TopRated } from "../../Pages/Home/TopRated";
 import { NaturalIngredients } from "../../Pages/Home/NaturalIngredients";
 import { BestIngredients } from "../../Pages/Home/BestIngredients";
 import { LearnMore } from "../../general/LearnMore";
-import { JoinSooth } from "../../general/JoinSooth";
-import { Footer } from "../../Footer";
 import { getFiftyProducts } from "../../../utils/api";
 
 export const Home = () => {
@@ -35,7 +32,6 @@ export const Home = () => {
 
   return (
     <>
-      <Navbar />
       <HeroSection product={productForHeroSection} />
       <Explore />
       <Popular popularProducts={mostPopular} />
@@ -44,8 +40,6 @@ export const Home = () => {
       <NaturalIngredients />
       <BestIngredients />
       <LearnMore />
-      <JoinSooth />
-      <Footer />
     </>
   );
 };

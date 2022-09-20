@@ -8,6 +8,7 @@ export const JoinSooth = () => {
       <div className={style.title__wrapper}>
         <h1>Join the Sooth Family</h1>
       </div>
+      <hr className={style.text__divider} />
       <div className={style.text__wrapper}>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -15,7 +16,7 @@ export const JoinSooth = () => {
         </p>
       </div>
       <div className={style.input__wrapper}>
-        <input type="text"></input>
+        <input type="text" />
         <Button btnContent={"Subscribe"} btnClass={"filled"} />
       </div>
     </section>

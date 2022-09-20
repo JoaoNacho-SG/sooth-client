@@ -22,7 +22,7 @@ export const Footer = () => {
             <p>Explore our innovative skincare products</p>
 
             <div className={style.input__wrapper}>
-              <input type="text" placeholder="Your email..."></input>
+              <input type="text" placeholder="Your email..." />
               <Button btnContent={"Subscribe"} btnClass={"secondary"} />
             </div>
           </div>

@@ -5,7 +5,6 @@ import style from "./herosection.module.scss";
 import { Layout } from "../../../layout/Layout";
 
 export const HeroSection = ({ product }) => {
-  console.log(window.innerWidth);
   return (
     <>
       <Layout>

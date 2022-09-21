@@ -8,6 +8,7 @@ import { NaturalIngredients } from "../../Pages/Home/NaturalIngredients";
 import { BestIngredients } from "../../Pages/Home/BestIngredients";
 import { LearnMore } from "../../general/LearnMore";
 import { getFiftyProducts } from "../../../utils/api";
+import { Search } from "../../general/Search";
 
 export const Home = () => {
   const [productsList, setProductsList] = useState([]);
@@ -32,6 +33,7 @@ export const Home = () => {
 
   return (
     <>
+      <Search />
       <HeroSection product={productForHeroSection} />
       <Explore />
       <Popular popularProducts={mostPopular} />

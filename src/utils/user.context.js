@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { auth } from "../utils/firebase-config";
+import { signOut } from "firebase/auth";
 
 const UserContext = createContext();
 
@@ -15,6 +17,10 @@ function UserProviderWrapper({ children }) {
   const removeUser = () => {
     localStorage.removeItem("authUser");
   };
+  //Signout util from Firebase
+  const logout = async () => {
+    await signOut(auth);
+  };
 
   const authenticateUser = () => {
     const storedUser = localStorage.getItem("authUser");
@@ -29,6 +35,7 @@ function UserProviderWrapper({ children }) {
 
   const logoutUser = () => {
     removeUser();
+    logout();
     authenticateUser();
     navigate("/");
   };

@@ -27,3 +27,25 @@ $font_color_discount: #A67744;
     margin-top: 10px;
     margin-left: 10px;
 }
+
+.tag__discount_productpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 59px;
+    height: 28px;
+    background-color: $bg_color;
+    color: $font_color_discount;
+    margin-bottom:-20px;
+}
+
+.tag__new_productpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 59px;
+    height: 28px;
+    background-color: $bg_color;
+    color: $font_color_new;
+    margin-bottom:-20px;
+}

@@ -4,7 +4,6 @@ import { getFiftyProducts } from "../../../utils/api";
 import style from "./search.module.scss";
 
 export const Search = () => {
-  const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [productsList, setProductsList] = useState([]);
 
@@ -16,17 +15,21 @@ export const Search = () => {
   }, []);
 
   const filterProductsList = (e) => {
-    setQuery(e.target.value);
+    const typedQuery = e.target.value;
 
-    if (!query.length) {
+    if (!typedQuery.length) {
       setResults([]);
     }
 
     setTimeout(() => {
       const productsFound = productsList.filter((product) => {
+        if (!typedQuery.length) {
+          return null;
+        }
+
         return (
-          product.title.toLowerCase() === query.toLowerCase() ||
-          product.title.toLowerCase().includes(query.toLowerCase())
+          product.title.toLowerCase() === typedQuery.toLowerCase() ||
+          product.title.toLowerCase().includes(typedQuery.toLowerCase())
         );
       });
 
@@ -41,7 +44,6 @@ export const Search = () => {
           className={style.search__input}
           type="text"
           placeholder="Search products"
-          value={query}
           onChange={filterProductsList}
         />
       </div>

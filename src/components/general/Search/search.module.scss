@@ -61,8 +61,8 @@ input::placeholder {
     max-width: 180px;
     color: $font_color;
     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .searchbar_enabled {

@@ -4,16 +4,10 @@ import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/user.context";
-import { signOut } from "firebase/auth";
-import { auth } from "../../utils/firebase-config";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
-  //Signout util from Firebase
-  const logout = async () => {
-    await signOut(auth);
-  };
 
   return (
     <>
@@ -41,7 +35,7 @@ export const Navbar = () => {
                     <li>Login</li>
                   </Link>
                 ) : (
-                  <li onClick={(logout, logoutUser)}>Logout</li>
+                  <li onClick={logoutUser}>Logout</li>
                 )}
               </div>
             </ul>

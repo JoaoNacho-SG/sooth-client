@@ -4,9 +4,8 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-
+    justify-content: space-between;
     li {
         cursor: pointer;
     }
@@ -14,11 +13,14 @@
 
 .navbar__content {
     display: flex;
+    align-items: center;
     gap: 50px;
 }
 
 .navbar__logo {
     font-size: 32px;
+    position: absolute;
+    left: 50%;
 }
 
 .navbar__second_row {
@@ -27,4 +29,11 @@ justify-content: center;
 flex-wrap: wrap;
 gap: 50px;
 font-size: 12px;
+}
+
+
+.searchbar__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }

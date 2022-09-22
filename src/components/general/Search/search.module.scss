@@ -6,12 +6,12 @@ $placeholder_font_color: #354E57;
 .search__container{
     position: relative;
     display: flex;
-    width: 350px;
+    width: 200px;
     margin-left: 150px;
 }
 
 .search__input {
-    width: 350px;
+    width: 200px;
     border: none;
     border-bottom: 1px solid $placeholder_font_color ;
     background-color: transparent;
@@ -25,15 +25,15 @@ input::placeholder {
 
 .results__container {
     position: absolute;
-    top: 30px;
-    left: -35px;
+    top: 40px;
+    left: -100px;
     max-height: 500px;
     overflow-y: scroll;
 }
 
 .results__wrapper {
     padding: 15px;
-    max-width: 350px;
+    max-width: 300px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -63,4 +63,12 @@ input::placeholder {
     white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.searchbar_enabled {
+    visibility: visible;
+}
+
+.searchbar_disabled {
+    visibility: hidden;
 }

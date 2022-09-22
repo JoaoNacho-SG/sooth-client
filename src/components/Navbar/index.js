@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import style from "./navbar.module.scss";
 import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
@@ -6,9 +6,12 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/user.context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase-config";
+import { Search } from "../general/Search";
+import { MdOutlineCancel } from "react-icons/md";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
+  const [searchClick, setSearchClick] = useState(false);
   //Signout util from Firebase
   const logout = async () => {
     await signOut(auth);
@@ -30,9 +33,20 @@ export const Navbar = () => {
                 </Link>
               </div>
               <div className={style.navbar__content}>
-                <li>
-                  <FiSearch />
-                </li>
+                <div className={style.searchbar__wrapper}>
+                  <Search visible={searchClick ? true : false} />
+
+                  <li>
+                    {searchClick ? (
+                      <MdOutlineCancel
+                        onClick={() => setSearchClick(!searchClick)}
+                      />
+                    ) : (
+                      <FiSearch onClick={() => setSearchClick(!searchClick)} />
+                    )}
+                  </li>
+                </div>
+
                 <li>Cart</li>
                 {!isLoggedIn ? (
                   <Link className={"link"} to={"/login"}>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getFiftyProducts } from "../../../utils/api";
 import style from "./search.module.scss";
 
-export const Search = () => {
+export const Search = ({ visible }) => {
   const [results, setResults] = useState([]);
   const [productsList, setProductsList] = useState([]);
 
@@ -39,7 +39,9 @@ export const Search = () => {
 
   return (
     <div className={style.search__container}>
-      <div>
+      <div
+        className={visible ? style.searchbar_enabled : style.searchbar_disabled}
+      >
         <input
           className={style.search__input}
           type="text"
@@ -48,25 +50,29 @@ export const Search = () => {
         />
       </div>
 
-      <div className={style.results__container}>
-        <ul>
-          {results &&
-            results.map((productFound) => {
-              return (
-                <li key={productFound.id} className={style.results__wrapper}>
-                  <Link to={`/product/${productFound.id}`}>
-                    <img
-                      src={productFound.image}
-                      alt="product match"
-                      className={style.results__image}
-                    />
-                  </Link>
-                  <h4 className={style.results__title}>{productFound.title}</h4>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
+      {visible && (
+        <div className={style.results__container}>
+          <ul>
+            {results &&
+              results.map((productFound) => {
+                return (
+                  <li key={productFound.id} className={style.results__wrapper}>
+                    <Link to={`/product/${productFound.id}`}>
+                      <img
+                        src={productFound.image}
+                        alt="product match"
+                        className={style.results__image}
+                      />
+                    </Link>
+                    <h4 className={style.results__title}>
+                      {productFound.title}
+                    </h4>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -35,12 +35,10 @@ export const ProductPage = () => {
   useEffect(() => {
     (async () => {
       const productFromApi = await getProduct(id);
-      //   console.log(productFromApi.status);
       setProduct(productFromApi.data);
     })();
   }, [id]);
 
-  // console.log(state.count);
   return (
     <section className={style.container}>
       <div className={style.img__wrapper}>

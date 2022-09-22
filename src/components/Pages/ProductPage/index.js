@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../../utils/api";
+import { calcPercentage } from "../../../utils/percentage";
 import { Button } from "../../general/Button";
 import { Rating } from "../../general/Rating";
+import { Tag } from "../../general/Tag";
 import style from "./productpage.module.scss";
 
 const initialState = { count: 1 };
@@ -33,27 +35,51 @@ export const ProductPage = () => {
   useEffect(() => {
     (async () => {
       const productFromApi = await getProduct(id);
-      //   console.log(productFromApi.status);
       setProduct(productFromApi.data);
     })();
   }, [id]);
 
   return (
     <section className={style.container}>
-      <div
-        style={{
-          backgroundImage: `url(${product?.images[0]})`,
-        }}
-        className={style.img__wrapper}
-      ></div>
+      <div className={style.img__wrapper}>
+        <img src={product?.image} alt="product" />
+      </div>
 
-      <div>
+      <div className={style.text__container}>
         <div className={style.text__wrapper}>
+          {product?.category === "jewelery" && (
+            <Tag tagDiscount={false} tagContent={"New!"} productPage={true} />
+          )}
+
+          {product?.title.toLowerCase().includes("women") &&
+            product?.category !== "jewelery" && (
+              <Tag
+                tagDiscount={true}
+                tagContent={"15% off"}
+                productPage={true}
+              />
+            )}
+
           <h1 className={style.title}>{product?.title}</h1>
-          <Rating stars={product?.rating} />
+          <Rating stars={product?.rating?.rate} />
+
           <div>
-            <p>${product?.price}</p>
-            <h4>{product?.brand}</h4>
+            <div className={style.price__wrapper}>
+              {product?.title.toLowerCase().includes("women") &&
+              product?.category !== "jewelery" ? (
+                <>
+                  <p className={style.price__discount}>
+                    ${calcPercentage(product?.price, 15)}
+                  </p>
+                  <p className={style.price__nodiscount}>${product?.price}</p>
+                </>
+              ) : (
+                <>
+                  <p>${product?.price}</p>
+                </>
+              )}
+            </div>
+            <h4>{product?.category}</h4>
             <p>
               <span>{product?.description}</span>
             </p>

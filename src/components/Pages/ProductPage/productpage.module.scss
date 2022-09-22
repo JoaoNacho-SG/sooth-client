@@ -29,15 +29,13 @@ $brand_color: #2E2E22;
 }
 
 .img__wrapper {
-    background-size: cover;
-    width: 30%;
-    height: 60%;
+    width: 320px;
 }
 
 .title {
     max-width: 300px;
     color: $title_color;
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: -5px;
 }
 
@@ -60,9 +58,6 @@ input::-webkit-inner-spin-button {
         border-bottom: 1px solid $title_color;
         border-top:1px solid $title_color;
     }
-    input::placeholder {
-        text-align: center;
-    }
 }
 
 .button_outlined {
@@ -72,23 +67,72 @@ background-color: transparent;
 border: 1px solid $title_color;
 }
 
-@media (max-width: 645px) {
+.price__wrapper {
+    display: flex;
+    gap:15px;
+    margin-bottom: -15px;
+    }
+
+.price__nodiscount {
+    text-decoration: line-through;
+    color: $brand_color;
+}
+
+.price__discount {
+    color: #DE3B35;
+}
+
+@media (max-width: 770px) {
     .container{
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: auto;
         margin-bottom: 100px;
+        margin-top: 50px;
+    }
+
+    .img__wrapper {
+        width: 150px;
+    }
+    .title {
+        font-size: 25px;
     }
 
     .counter__wrapper {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 200px;
+        align-items: flex-start;
+        gap: 15px;
     }
 
     .text__wrapper {
-        width: 200px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 500px) {
+    .text__container {
+        margin-right: 100px;
+    }
+
+    .text__wrapper {
+        margin:auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .img__wrapper {
+        align-self: center;
+        margin-right: 100px;
+    }
+
+    .counter__wrapper {
+        width: 300px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .text__container {
+        width: 100vw;
     }
 }

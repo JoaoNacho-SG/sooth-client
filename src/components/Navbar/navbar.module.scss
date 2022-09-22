@@ -1,80 +1,106 @@
 $font_color: #354E57;
 
 .navbar__container {
-    height:84px;
-    color:$font_color
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $font_color;
+    width: 100%;
 }
 
-.navbar {
+.navbar__first_row {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-
-    li {
-        cursor: pointer;
-    }
+    align-items: center;
+    width: 100%;
 }
 
 .navbar__content_left {
+    font-size: 16px;
+    max-width: 50%;
     display: flex;
-    gap: 50px;
+    gap: 15px;
 }
 
 .navbar__content_right {
     display: flex;
-    gap: 50px;
+    align-items: center;
+    padding-right: 50px;
+    gap: 20px;
 }
 
 .navbar__logo {
-    font-size: 32px;
+    font-size: 35px;
+    position: absolute;
+    left: 45%;
 }
 
 .navbar__second_row {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 50px;
-font-size: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    font-size: 12px;
 }
 
 .burger {
-display: none;
+    display: none;
 }
 
-@media (max-width: 700px) {
 
-    .navbar__container {
-        display: flex;
-        align-items: center;
-        height: 80px;
-    }
+.searchbar__wrapper {
+    display: flex;
+    align-items: center;
+    width: auto;
+}
 
+
+
+@media (max-width: 920px) {
     .burger {
+        position: absolute;
         display: block;
-        font-size: 30px;
+        font-size: 20px;
         cursor: pointer;
     }
 
-    .navbar{
-        width: 100vw;
-    }
-
-    .navbar__logo {
-        font-size: 20px;
-    }
-
-    
     .navbar__content_left {
         display: none;
     }
+
+    .navbar__content_right {
+        position: absolute;
+        right: 10px;
+    }
+
+    .navbar__first_row {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar__logo {
+        font-size: 25px;
+        position: absolute;
+        left: 70px;
+    }
+}
+
+@media (max-width: 600px) {
     .navbar__second_row {
         display: none;
     }
 
     .navbar__content_right {
-        gap: 15px;
-        font-size: 12px;
         display: flex;
-        align-items: center;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        margin-top: 80px;
+        gap: 10px;
+
+        input {
+            background-color: white;
+        }
     }
 }

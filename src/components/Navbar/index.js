@@ -1,34 +1,47 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import style from "./navbar.module.scss";
 import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/user.context";
+import { Search } from "../general/Search";
+import { MdOutlineCancel } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
+  const [searchClick, setSearchClick] = useState(false);
 
   return (
     <>
       <Layout>
         <header>
           <nav className={style.navbar__container}>
-            <GiHamburgerMenu className={style.burger} />
-            <ul className={style.navbar}>
+            <ul className={style.navbar__first_row}>
+              <GiHamburgerMenu className={style.burger} />
               <div className={style.navbar__content_left}>
                 <li>About</li>
                 <li>Consultation</li>
               </div>
-              <div>
+              <div className={style.navbar__logo}>
                 <Link className={"link"} to={"/"}>
-                  <li className={style.navbar__logo}>sooth</li>
+                  <li>sooth</li>
                 </Link>
               </div>
               <div className={style.navbar__content_right}>
-                <li>
-                  <FiSearch />
-                </li>
+                <div className={style.searchbar__wrapper}>
+                  <Search visible={searchClick ? true : false} />
+                  <li>
+                    {searchClick ? (
+                      <MdOutlineCancel
+                        onClick={() => setSearchClick(!searchClick)}
+                      />
+                    ) : (
+                      <FiSearch onClick={() => setSearchClick(!searchClick)} />
+                    )}
+                  </li>
+                </div>
+
                 <li>Cart</li>
                 {!isLoggedIn ? (
                   <Link className={"link"} to={"/login"}>

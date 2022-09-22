@@ -14,6 +14,12 @@ export const Search = ({ visible }) => {
     })();
   }, []);
 
+  useEffect(() => {
+    if (!visible) {
+      setResults([]);
+    }
+  }, [visible]);
+
   const filterProductsList = (e) => {
     const typedQuery = e.target.value;
 

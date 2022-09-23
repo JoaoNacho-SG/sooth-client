@@ -42,7 +42,13 @@ export const Navbar = () => {
                   </li>
                 </div>
 
-                <li>Cart</li>
+                <div className={style.cart}>
+                  <div className={style.cart__amount}>
+                    <p>3</p>
+                  </div>
+                  <li>Cart</li>
+                </div>
+
                 {!isLoggedIn ? (
                   <Link className={"link"} to={"/login"}>
                     <li>Login</li>

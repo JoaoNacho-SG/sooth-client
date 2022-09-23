@@ -55,7 +55,27 @@
     width: auto;
 }
 
+.cart {
+    position: relative;
+}
 
+.cart__amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $oxford-blue;
+    color: $white;
+
+    p {
+        font-size:12px;
+    }
+}
 
 @media (max-width: 920px) {
     .burger {
@@ -100,7 +120,7 @@
         gap: 10px;
 
         input {
-            background-color: $white;
+            background-color: $white-transparent;
         }
     }
 }

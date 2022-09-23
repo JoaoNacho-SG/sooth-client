@@ -2,7 +2,6 @@ import React from "react";
 import style from "./toprated.module.scss";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
-import { Link } from "react-router-dom";
 import { calcPercentage } from "../../../../utils/percentage";
 
 export const TopRated = ({ topRatedProducts }) => {
@@ -21,6 +20,7 @@ export const TopRated = ({ topRatedProducts }) => {
                 return (
                   <article key={product.id}>
                     <Card
+                      id={product.id}
                       img={product.image}
                       title={product.title}
                       description={product.description}
@@ -30,10 +30,6 @@ export const TopRated = ({ topRatedProducts }) => {
                       btnClass={"primary"}
                       tagCategory={"jewelery"}
                     />
-
-                    <Link className="link" to={`/product/${product.id}`}>
-                      <p className={style.details}>more details</p>
-                    </Link>
                   </article>
                 );
               }
@@ -45,6 +41,7 @@ export const TopRated = ({ topRatedProducts }) => {
                 return (
                   <article key={product.id}>
                     <Card
+                      id={product.id}
                       img={product.image}
                       title={product.title}
                       description={product.description}
@@ -56,10 +53,6 @@ export const TopRated = ({ topRatedProducts }) => {
                       btnClass={"primary"}
                       tagCategory={"women"}
                     />
-
-                    <Link className="link" to={`/product/${product.id}`}>
-                      <p className={style.details}>more details</p>
-                    </Link>
                   </article>
                 );
               }
@@ -67,6 +60,7 @@ export const TopRated = ({ topRatedProducts }) => {
               return (
                 <article key={product.id}>
                   <Card
+                    id={product.id}
                     img={product.image}
                     title={product.title}
                     description={product.description}
@@ -75,9 +69,6 @@ export const TopRated = ({ topRatedProducts }) => {
                     btnClass={"primary"}
                     icon={true}
                   />
-                  <Link className="link" to={`/product/${product.id}`}>
-                    <p className={style.details}>more details</p>
-                  </Link>
                 </article>
               );
             })}

@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "../../../general/Card";
 import { Layout } from "../../../layout/Layout";
 import style from "./popular.module.scss";
-import { Link } from "react-router-dom";
 import { calcPercentage } from "../../../../utils/percentage";
 
 export const Popular = ({ popularProducts }) => {
@@ -21,6 +20,7 @@ export const Popular = ({ popularProducts }) => {
                 return (
                   <article key={product.id}>
                     <Card
+                      id={product.id}
                       img={product.image}
                       title={product.title}
                       description={product.description}
@@ -30,10 +30,6 @@ export const Popular = ({ popularProducts }) => {
                       btnClass={"primary"}
                       tagCategory={"jewelery"}
                     />
-
-                    <Link className="link" to={`/product/${product.id}`}>
-                      <p className={style.details}>more details</p>
-                    </Link>
                   </article>
                 );
               }
@@ -45,6 +41,7 @@ export const Popular = ({ popularProducts }) => {
                 return (
                   <article key={product.id}>
                     <Card
+                      id={product.id}
                       img={product.image}
                       title={product.title}
                       description={product.description}
@@ -56,10 +53,6 @@ export const Popular = ({ popularProducts }) => {
                       btnClass={"primary"}
                       tagCategory={"women"}
                     />
-
-                    <Link className="link" to={`/product/${product.id}`}>
-                      <p className={style.details}>more details</p>
-                    </Link>
                   </article>
                 );
               }
@@ -67,6 +60,7 @@ export const Popular = ({ popularProducts }) => {
               return (
                 <article key={product.id}>
                   <Card
+                    id={product.id}
                     img={product.image}
                     title={product.title}
                     description={product.description}
@@ -75,10 +69,6 @@ export const Popular = ({ popularProducts }) => {
                     btnContent={`Add to cart`}
                     btnClass={"primary"}
                   />
-
-                  <Link className="link" to={`/product/${product.id}`}>
-                    <p className={style.details}>more details</p>
-                  </Link>
                 </article>
               );
             })}

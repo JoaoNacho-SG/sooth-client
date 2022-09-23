@@ -8,6 +8,7 @@ import { NaturalIngredients } from "../../Pages/Home/NaturalIngredients";
 import { BestIngredients } from "../../Pages/Home/BestIngredients";
 import { LearnMore } from "../../general/LearnMore";
 import { getFiftyProducts } from "../../../utils/api";
+import products from "../../../assets/data/products.json";
 
 export const Home = () => {
   const [productsList, setProductsList] = useState([]);
@@ -34,7 +35,9 @@ export const Home = () => {
     <>
       <HeroSection product={productForHeroSection} />
       <Explore />
-      <Popular popularProducts={mostPopular} />
+      {/* <Popular popularProducts={mostPopular} /> */}
+      {/* while fakestoreAPI is down use products below */}
+      <Popular popularProducts={products} />
       <CleanProducts />
       <TopRated topRatedProducts={topRated} />
       <NaturalIngredients />

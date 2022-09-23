@@ -2,19 +2,19 @@ import React from "react";
 import style from "./button.module.scss";
 import { MdShoppingCart } from "react-icons/md";
 
-export const Button = ({ btnContent, btnClass, icon }) => {
+export const Button = ({ btnContent, btnClass, icon, addToCart }) => {
   if (btnClass === "primary") {
     return (
-      <button className={style.btn__primary}>
+      <>
         {!icon ? (
-          `${btnContent}`
+          <button className={style.btn__primary}>{btnContent}</button>
         ) : (
-          <>
+          <button className={style.btn__primary} onClick={addToCart}>
             <MdShoppingCart />
             {btnContent}
-          </>
+          </button>
         )}
-      </button>
+      </>
     );
   }
 

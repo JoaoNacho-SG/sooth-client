@@ -1,31 +1,34 @@
 [
     {
-        "img": "https://img.freepik.com/premium-vector/cosmetic-cream-glass-jar-face-cream-bottle-mockup-beauty-makeup-package-mockup-with-plastic-lid_83194-1363.jpg?w=2000",
+        "id": 1,
+        "image": "https://img.freepik.com/premium-vector/cosmetic-cream-glass-jar-face-cream-bottle-mockup-beauty-makeup-package-mockup-with-plastic-lid_83194-1363.jpg?w=2000",
         "title": "Acne cream",
         "description": "Natural ingredients",
         "price": "24,99",
         "discount": false
     },
     {
-        "img": "https://img.freepik.com/premium-vector/skin-care-beauty-gold-plated-packaging-with-jars-tube-bottle_215348-198.jpg?w=2000",
+        "id": 2,
+        "image": "https://img.freepik.com/premium-vector/skin-care-beauty-gold-plated-packaging-with-jars-tube-bottle_215348-198.jpg?w=2000",
         "title": "Vitiligio Solution",
         "description": "Natural ingredients",
         "price": "24,99",
         "discount": false
     },
     {
-        "img": "https://thumbs.dreamstime.com/z/cosmetic-tube-liquid-foundation-creme-fluid-isolated-background-cosmetics-package-design-d-vector-realistic-illustration-116565730.jpg",
+        "id": 3,
+        "image": "https://thumbs.dreamstime.com/z/cosmetic-tube-liquid-foundation-creme-fluid-isolated-background-cosmetics-package-design-d-vector-realistic-illustration-116565730.jpg",
         "title": "Ezcema Cream",
         "description": "Natural ingredients",
         "price": "24,99",
         "discount": false
     },
     {
-        "img": "https://img.freepik.com/premium-vector/glass-transparent-container-liquid-foundation-creme-fluid-isolated-background_316839-53.jpg?w=2000",
+        "id": 4,
+        "image": "https://img.freepik.com/premium-vector/glass-transparent-container-liquid-foundation-creme-fluid-isolated-background_316839-53.jpg?w=2000",
         "title": "Sunburn Ointment",
         "description": "Natural ingredients",
         "price": "24,99",
-        "discount": true,
-        "newprice": "18,99"
+        "discount": true
     }
 ]

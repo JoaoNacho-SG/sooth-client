@@ -1,14 +1,13 @@
+@use "./variables" as *;
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 $font-family: Outfit;
-$bg-color:#F7F7F7;
-$link_font_color: #354E57;
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
   font-family: $font-family;
-  background-color: $bg-color;
+  background-color: $alabasterr;
   }
 
 ul {
@@ -21,10 +20,10 @@ button:hover {
 
 .link {
   text-decoration: none;
-  color: $link_font_color;
+  color: $oxford-blue;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: $white;
 }

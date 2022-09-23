@@ -1,6 +1,4 @@
-$bg_color: #F7F7F7;
-$font_color_new: #354E57;
-$font_color_discount: #A67744;
+@use "../../../styles/variables" as *;
 
 .tag__wrapper_new {
     display: flex;
@@ -8,8 +6,8 @@ $font_color_discount: #A67744;
     align-items: center;
     width: 50px;
     height: 28px;
-    background-color: $bg_color;
-    color: $font_color_new;
+    background-color: $alabasterr;
+    color: $oxford-blue;
     position: absolute;
     margin-top: 10px;
     margin-left: 10px;
@@ -21,8 +19,8 @@ $font_color_discount: #A67744;
     align-items: center;
     width: 59px;
     height: 28px;
-    background-color: $bg_color;
-    color: $font_color_discount;
+    background-color: $alabasterr;
+    color: $dark-orange;
     position: absolute;
     margin-top: 10px;
     margin-left: 10px;
@@ -34,8 +32,8 @@ $font_color_discount: #A67744;
     align-items: center;
     width: 59px;
     height: 28px;
-    background-color: $bg_color;
-    color: $font_color_discount;
+    background-color: $alabasterr;
+    color: $dark-orange;
     margin-bottom:-20px;
 }
 
@@ -45,7 +43,7 @@ $font_color_discount: #A67744;
     align-items: center;
     width: 59px;
     height: 28px;
-    background-color: $bg_color;
-    color: $font_color_new;
+    background-color: $alabasterr;
+    color: $oxford-blue;
     margin-bottom:-20px;
 }

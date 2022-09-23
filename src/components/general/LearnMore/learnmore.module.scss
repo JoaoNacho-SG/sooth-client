@@ -1,14 +1,12 @@
-$text-color: #354E57;
-$bg-color: #EEF2F4;
+@use "../../../styles/variables" as *;
 
 .container {
     margin-top: 100px;
     height: 235px;
-    background-color: $bg-color;
+    background-color: $athens-gray;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .wrapper {
@@ -17,17 +15,18 @@ $bg-color: #EEF2F4;
 
     p{
         font-size: 14px;
-        color: $text-color;
+        color: $oxford-blue;
     }
 
-    a{
+    span{
+        text-decoration: underline;
         font-size: 10px;
-        color: $text-color;
+        color: $oxford-blue;
     }
 }
 .icon {
     font-size: 30px;
-    color: #C6B9B6;
+    color: $silver-rust;
 }
 
 @media (max-width: 490px) {

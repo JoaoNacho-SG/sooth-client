@@ -1,12 +1,14 @@
+@use "../../../styles/variables" as *;
+
 .rating__wrapper {
     width: 80px;
-    color: gold;
+    color: $gold;
     font-size: 15px;
 }
 
 .norating__wrapper {
 width: 100px;
 font-size: 12px;
-color: red;
+color: $red;
 text-decoration: underline;
 }

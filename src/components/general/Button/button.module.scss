@@ -1,19 +1,4 @@
-// button filled
-$filled_bg_color: #956A53;
-$filled_font_color: #FFFF;
-$filled_border_color: #956A53;
-// button primary
-$primary_border_color: #354E57;
-$primary_font_color: #2E2E22;
-// button secondary
-$secondary_border_color: #FFFF;
-$secondary_font_color: #F7F5E6;
-// button tertiary
-$tertiary_border_color:#956A53;
-$tertiary_font_color:#2E2E22;
-// button login
-$login_bg_color: #354E57;
-$login_font_color: #FFFF;
+@use "../../../styles/variables" as *;
 
 .btn__primary {
     display: flex;
@@ -23,39 +8,39 @@ $login_font_color: #FFFF;
     min-width: 173px;
     min-height:35px;
     background-color: transparent;
-    border: 1px solid $primary_border_color;
-    color: $primary_font_color;
+    border: 1px solid $oxford-blue;
+    color: $rangitoto;
 }
 
 .btn__secondary {
-    min-width: 80px;
+    min-width: 173px;
     min-height:35px;
     background-color: transparent;
-    border: 1px solid $secondary_border_color;
-    color: $secondary_font_color;
+    border: 1px solid $white;
+    color: $beige;
 }
 
 .btn__tertiary {
     min-width: 173px;
     min-height:35px;
     background-color: transparent;
-    border: 1px solid $tertiary_border_color;
-    color: $tertiary_font_color;
+    border: 1px solid $brown;
+    color: $rangitoto;
 }
 
 .btn__filled {
     min-width: 173px;
     min-height:35px;
-    background-color: $filled_bg_color;
-    color: $filled_font_color;
-    border: 1px solid $filled_border_color;
+    background-color: $brown;
+    color: $white;
+    border: 1px solid $brown;
 }
 
 .btn__login {
     min-width: 300px;
     min-height:40px;
-    background-color: $login_bg_color;
-    color: $login_font_color;
+    background-color: $oxford-blue;
+    color: $white;
     border-radius: 3px;
     border: none;
     font-size: 16px;

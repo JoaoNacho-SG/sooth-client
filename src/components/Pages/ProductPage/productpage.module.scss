@@ -1,5 +1,4 @@
-$title_color: #354E57;
-$brand_color: #2E2E22;
+@use "../../../styles/variables" as *;
 
 .container {
     width: 100vw;
@@ -18,13 +17,13 @@ $brand_color: #2E2E22;
     flex-wrap: wrap;
     h4 {
         font-size: 15px;
-        color: $brand_color;
+        color: $rangitoto;
         margin-bottom: -10px;
     }
 
     span {
         font-size: 12px;
-        color:$brand_color;
+        color:$rangitoto;
     }
 }
 
@@ -34,7 +33,7 @@ $brand_color: #2E2E22;
 
 .title {
     max-width: 300px;
-    color: $title_color;
+    color: $oxford-blue;
     font-size: 30px;
     margin-bottom: -5px;
 }
@@ -55,8 +54,8 @@ input::-webkit-inner-spin-button {
         width: 30px;
         height: 30px;
         background-color: transparent;
-        border-bottom: 1px solid $title_color;
-        border-top:1px solid $title_color;
+        border-bottom: 1px solid $oxford-blue;
+        border-top:1px solid $oxford-blue;
     }
 }
 
@@ -64,7 +63,7 @@ input::-webkit-inner-spin-button {
     width: 34px;
     height: 34px;
 background-color: transparent;
-border: 1px solid $title_color;
+border: 1px solid $oxford-blue;
 }
 
 .price__wrapper {
@@ -75,7 +74,7 @@ border: 1px solid $title_color;
 
 .price__nodiscount {
     text-decoration: line-through;
-    color: $brand_color;
+    color: $rangitoto;
 }
 
 .price__discount {

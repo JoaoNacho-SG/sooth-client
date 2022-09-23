@@ -1,3 +1,5 @@
+@use "../../../styles/variables" as *;
+
 .card__container {
     display: flex;
     flex-direction: column;
@@ -11,26 +13,26 @@
     }
 
     h4 {
-margin-bottom: -10px;
-font-weight: 100;
-overflow: hidden;
-max-width: 75ch;
-text-overflow: ellipsis;
-white-space: nowrap;
+        margin-bottom: -10px;
+        font-weight: 100;
+        overflow: hidden;
+        max-width: 75ch;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     p {
-    font-size: 12px;
-    overflow:hidden;
-    max-width: 25ch;
-    text-overflow:ellipsis;
-    white-space: nowrap;
+        font-size: 12px;
+        overflow:hidden;
+        max-width: 25ch;
+        text-overflow:ellipsis;
+        white-space: nowrap;
     }
 }
 
 .card__price {
-display: flex;
-gap:15px;
+    display: flex;
+    gap:15px;
 }
 
 .card__price_nodiscount {
@@ -38,5 +40,5 @@ gap:15px;
 }
 
 .card__price_discount {
-    color: #A67744;
+    color: $dark-orange;
 }

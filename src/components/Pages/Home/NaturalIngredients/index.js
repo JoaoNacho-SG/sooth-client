@@ -1,5 +1,6 @@
 import React from "react";
 import { TextWithImage } from "../../../general/TextWithImage";
+
 const textContent =
   "A healthier you from the inside out. We’ve sourced the cleanest ingredients to create a line of clean skin care treatments that leave you feeling your best";
 const image =

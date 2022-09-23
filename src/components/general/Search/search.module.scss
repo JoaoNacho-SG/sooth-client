@@ -1,7 +1,4 @@
-$border_color: #BACAD1;
-$bg_color: #fffffff1;
-$font_color: #2E2E22;
-$placeholder_font_color: #354e57b2;
+@use "../../../styles/variables" as *;
 
 .search__container{
     position: relative;
@@ -13,13 +10,13 @@ $placeholder_font_color: #354e57b2;
 .search__input {
     max-width: 200px;
     border: none;
-    border-bottom: 1px solid $placeholder_font_color ;
+    border-bottom: 1px solid $oxford-blue-transparent ;
     background-color: transparent;
     padding: 5px;
 }
 
 input::placeholder {
-    color: $placeholder_font_color;
+    color: $oxford-blue-transparent;
     font-size: 12px;
 }
 
@@ -38,20 +35,20 @@ input::placeholder {
     display: flex;
     align-items: center;
     gap: 30px;
-    border-right: 1px solid $border_color;
-    border-left: 1px solid $border_color;
-    border-bottom: 1px solid $border_color;
-    background-color: $bg_color;
+    border-right: 1px solid $gray-blue;
+    border-left: 1px solid $gray-blue;
+    border-bottom: 1px solid $gray-blue;
+    background-color: $white-transparent;
 }
 
 .results__wrapper:first-child {
-    border-top: 1px solid $border_color;
+    border-top: 1px solid $gray-blue;
 }
 
 .results__image {
     width: 100px;
     height: 100px;
-    border-right: 1px solid $border_color;
+    border-right: 1px solid $gray-blue;
     padding-right: 15px;
 }
 
@@ -59,7 +56,7 @@ input::placeholder {
     font-weight: 100;
     font-size: 14px;
     max-width: 180px;
-    color: $font_color;
+    color: $rangitoto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,6 +1,4 @@
-$font-color: #354E57;
-$input-outline-color: #956A53;
-$bg-color: #FFFFFF;
+@use "../../../styles/variables" as *;
 
 .container {
     display: flex;
@@ -9,19 +7,19 @@ $bg-color: #FFFFFF;
     flex-wrap: wrap;
     height: 150px;
     border-top: 1px solid black;
-    background-color: $bg-color;
+    background-color: $white;
 }
 
 .title__wrapper {
     display: flex;
     border-right: 1px solid #D7CCDD;
     width: 200px;
-    color: $font-color;
+    color: $oxford-blue;
 }
 
 .text__wrapper {
     width: 300px;
-    color: $font-color;
+    color: $oxford-blue;
 }
 
 .input__wrapper {
@@ -30,7 +28,7 @@ $bg-color: #FFFFFF;
 
     input {
         max-width: 250px;
-        border: 1px solid $input-outline-color;
+        border: 1px solid $brown;
     }
 }
 

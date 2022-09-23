@@ -1,18 +1,17 @@
-$input_border: #BACAD1;
-$font_color: #354E57;
+@use "../../../../styles/variables" as *;
 
 .form__container {
     height: calc(80vh - 84px);
-width:300px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: auto;
-gap: 15px;
+    width:300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 15px;
 
 h1 {
-    color: $font_color;
+    color: $oxford-blue;
     margin-bottom: 50px;
 }
 
@@ -29,10 +28,10 @@ input::placeholder {
 }
 
 .register__text {
-        margin-top: -10px;
-        width:300px;
-        color: $font_color;
-        font-size: 12px;
+    margin-top: -10px;
+    width:300px;
+    color: $oxford-blue;
+    font-size: 12px;
 }
 
 .input__password {
@@ -57,11 +56,11 @@ input::placeholder {
     min-width: 300px;
     min-height: 40px;
     border-radius: 3px;
-    border: 1px solid $input_border;
+    border: 1px solid $gray-blue;
 }
 
 .field__input_error {
-    border: 2px solid red;
+    border: 2px solid $red;
     min-width: 300px;
     min-height: 40px;
     border-radius: 3px;

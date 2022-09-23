@@ -1,12 +1,9 @@
-$bg_color: #354E57;
-$border_color: #707070;
-$font_color: #FFFFFF;
-$input-outline-color:#FFFFFF;
+@use "../../styles/variables" as *;
 
 .footer__container {
-    background-color: $bg_color;
-    border: 1px solid $border_color;
-    color: $font_color;
+    background-color: $oxford-blue;
+    border: 1px solid $dark-gray;
+    color: $white;
     display: flex;
     flex-direction: column;
     
@@ -40,11 +37,11 @@ $input-outline-color:#FFFFFF;
         width: 250px;
         min-height:35px;
         background-color: transparent;
-        border: 1px solid $input-outline-color;
+        border: 1px solid $white;
     }
 
     input::placeholder {
-        color: $font_color;
+        color: $white;
         padding-left: 15px;
     }
 }

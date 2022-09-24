@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { addOneToCart } from "../../../utils/cart";
+import { addToCart } from "../../../utils/cart";
 import { Button } from "../Button";
 import { Tag } from "../Tag";
 import style from "./card.module.scss";
@@ -49,7 +49,7 @@ export const Card = ({
         btnContent={btnContent}
         btnClass={btnClass}
         icon={icon}
-        addToCart={() => addOneToCart(id, 1)}
+        addToCart={() => addToCart(id, 1)}
       />
     </figure>
   );

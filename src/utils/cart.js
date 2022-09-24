@@ -1,42 +1,26 @@
-export const addOneToCart = (id, amount) => {
+export const addToCart = (id, amount) => {
+  window.location.reload();
   const userCart = localStorage.getItem("cart");
-  console.log(JSON.parse(userCart));
-  //TO DO
+  const shoppingCart = JSON.parse(userCart);
+  //No cart was found
   if (!userCart) {
     const list = [{ id: id, amount: amount }];
-    localStorage.setItem("cart", JSON.stringify(list));
-  } else if (
-    JSON.parse(userCart.find((product) => product.id === id)) == null
-  ) {
+    return localStorage.setItem("cart", JSON.stringify(list));
+  }
+  //Cart was found and product is not in the cart
+  if (shoppingCart.find((product) => product.id === id) === undefined) {
     return localStorage.setItem(
       "cart",
-      JSON.stringify([...userCart, { id: id, amount: 1 }])
+      JSON.stringify([...shoppingCart, { id: id, amount: 1 }])
     );
   } else {
-    return userCart.map((product) => {
-      if (product.id === id) {
-        return localStorage.setItem(
-          "cart",
-          JSON.stringify([
-            ...userCart,
-            { ...product, amount: product.amount + 1 },
-          ])
-        );
-      } else {
-        return product;
-      }
-    });
+    //Cart was found and product is in the cart
+    let productToUpdate = shoppingCart.find((product) => product.id === id);
+    let newShoppingCart = shoppingCart.filter((product) => product.id !== id);
+    productToUpdate = [
+      ...newShoppingCart,
+      { id: id, amount: productToUpdate.amount + amount },
+    ];
+    return localStorage.setItem("cart", JSON.stringify([...productToUpdate]));
   }
-
-  //   if (cart.find((product) => product.id === id) == null) {
-  //     return [...cart, { id, amount: 1 }];
-  //   } else {
-  //     return cart.map((product) => {
-  //       if (product.id === id) {
-  //         return { ...product, amount: product.amount + 1 };
-  //       } else {
-  //         return product;
-  //       }
-  //     });
-  //   }
 };

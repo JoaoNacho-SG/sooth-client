@@ -1,14 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 const CartContext = createContext();
 
 function CartProviderWrapper({ children }) {
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    const productsInCart = localStorage.getItem("cart");
-    setCart(JSON.parse(productsInCart));
-  }, []);
+  const [cart, setCart] = useLocalStorage("cart", []);
 
   const addToCart = (id, amount) => {
     const userCart = localStorage.getItem("cart");

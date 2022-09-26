@@ -16,7 +16,7 @@ function UserProviderWrapper({ children }) {
   };
 
   const removeUser = () => {
-    localStorage.removeItem("authUser");
+    localStorage.clear();
   };
   //Signout util from Firebase
   const logout = async () => {

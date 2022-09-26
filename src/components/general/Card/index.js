@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../../utils/cart";
+import { CartContext } from "../../../utils/cart.context";
 import { Button } from "../Button";
 import { Tag } from "../Tag";
 import style from "./card.module.scss";
@@ -18,6 +18,7 @@ export const Card = ({
   icon,
   tagCategory,
 }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <figure className={style.card__container}>
       {tagCategory === "jewelery" && (

@@ -8,6 +8,7 @@ const UserContext = createContext();
 function UserProviderWrapper({ children }) {
   const [userInSession, setUserInSession] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const storeUser = (user) => {
@@ -27,9 +28,11 @@ function UserProviderWrapper({ children }) {
     if (storedUser) {
       setUserInSession(storedUser);
       setIsLoggedIn(true);
+      setIsLoading(false);
     } else {
       setUserInSession(null);
       setIsLoggedIn(false);
+      setIsLoading(false);
     }
   };
 
@@ -53,6 +56,7 @@ function UserProviderWrapper({ children }) {
         storeUser,
         authenticateUser,
         logoutUser,
+        isLoading,
       }}
     >
       {children}

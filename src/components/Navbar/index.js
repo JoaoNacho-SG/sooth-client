@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import style from "./navbar.module.scss";
 import { FiSearch } from "react-icons/fi";
 import { Layout } from "../layout/Layout";
@@ -7,17 +7,12 @@ import { UserContext } from "../../utils/user.context";
 import { Search } from "../general/Search";
 import { MdOutlineCancel } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CartContext } from "../../utils/cart.context";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
+  const { cart } = useContext(CartContext);
   const [searchClick, setSearchClick] = useState(false);
-  const [productsInCart, setProductsInCart] = useState([]);
-
-  useEffect(() => {
-    const shoppingCart = localStorage.getItem("cart");
-    const productAmount = JSON.parse(shoppingCart);
-    setProductsInCart(productAmount);
-  }, []);
 
   return (
     <>
@@ -50,10 +45,10 @@ export const Navbar = () => {
                 </div>
 
                 <div className={style.cart}>
-                  {productsInCart?.length > 0 && (
+                  {cart?.length > 0 && (
                     <div className={style.cart__amount}>
                       <p>
-                        {productsInCart.reduce(
+                        {cart.reduce(
                           (amount, product) => product.amount + amount,
                           0
                         )}

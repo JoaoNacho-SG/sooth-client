@@ -48,7 +48,7 @@ export const LoginForm = () => {
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        storeUser(currentUser.email);
+        storeUser(currentUser?.email);
       });
     })();
   }, [storeUser]);

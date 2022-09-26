@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../../utils/api";
+import { CartContext } from "../../../utils/cart.context";
 import { calcPercentage } from "../../../utils/percentage";
 import { Button } from "../../general/Button";
 import { Rating } from "../../general/Rating";
@@ -27,6 +28,7 @@ export const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [state, dispatch] = useReducer(counter, initialState);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -108,6 +110,7 @@ export const ProductPage = () => {
                   btnClass={"primary"}
                   icon={true}
                   btnContent={"Add to cart"}
+                  addToCart={() => addToCart(product.id, state.count)}
                 />
               </div>
             </div>

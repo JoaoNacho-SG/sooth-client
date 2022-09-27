@@ -3,26 +3,27 @@
 .card__container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    max-width: 200px;
+    max-width: 250px;
+    mix-blend-mode: multiply;
     
 
     img {
-        width: 200px;
-        height: 250px;
+        width: 250px;
+        height: 320px;
     }
 
     h4 {
-        margin-bottom: -10px;
-        font-weight: 100;
+        margin-top: 10px;
         overflow: hidden;
-        max-width: 75ch;
+        max-width: 15ch;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-size: 1rem;
+        color: $rangitoto;
     }
 
     p {
-        font-size: 12px;
+        font-size: 0.8rem;
         overflow:hidden;
         max-width: 25ch;
         text-overflow:ellipsis;
@@ -30,12 +31,20 @@
     }
 }
 
+.card__description {
+    color: $rangitoto;
+}
+
 .card__price {
+    margin-top: 15px;
     display: flex;
-    gap:15px;
+    gap: 20px;
+    color:$rangitoto;
+    margin-bottom: 15px;
 }
 
 .card__price_nodiscount {
+    color:$rangitoto;
     text-decoration: line-through;
 }
 

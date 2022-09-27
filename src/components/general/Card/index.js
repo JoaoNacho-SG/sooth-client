@@ -33,7 +33,7 @@ export const Card = ({
       </Link>
       <figcaption>
         <h4>{title}</h4>
-        <p>{description}</p>
+        <p className={style.card__description}>{description}</p>
 
         <div className={style.card__price}>
           {!discount ? (

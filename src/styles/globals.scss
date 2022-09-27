@@ -2,13 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 $font-family: Outfit;
 
-body {
+* {
   margin: 0;
   padding: 0;
-  border: 0;
   font-family: $font-family;
-  background-color: $alabasterr;
-  }
+}
 
 ul {
   list-style: none; 

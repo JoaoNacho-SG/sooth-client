@@ -7,7 +7,7 @@ import style from "./bestingredients.module.scss";
 export const BestIngredients = () => {
   return (
     <>
-      <Layout>
+      <Layout bgColor={"#F7F7F7"}>
         <section className={style.container}>
           <div className={style.text__wrapper}>
             <h1>We use the best</h1>

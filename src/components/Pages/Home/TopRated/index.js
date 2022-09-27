@@ -7,14 +7,22 @@ import { calcPercentage } from "../../../../utils/percentage";
 export const TopRated = ({ topRatedProducts }) => {
   return (
     <>
-      <Layout>
-        <section>
+      <Layout bgColor={"#EEF3F4"}>
+        <section className={style.toprated__container}>
           <div className={style.toprated__browse}>
-            <p>Top rated</p>
-            <p>Shop all Products</p>
+            <div className={style.toprated__browse_left}>
+              <p>
+                <a href="#">Top rated</a>
+              </p>
+            </div>
+            <div className={style.toprated__browse_right}>
+              <p>
+                <a href="#"> Shop all Products</a>
+              </p>
+            </div>
           </div>
 
-          <div className={style.toprated__container}>
+          <div className={style.toprated__card_container}>
             {topRatedProducts.map((product) => {
               if (product.category === "jewelery") {
                 return (

@@ -8,7 +8,7 @@ export const Popular = ({ popularProducts }) => {
   return (
     <>
       <Layout bgColor={"#EEF3F4"}>
-        <section>
+        <section className={style.popular__container}>
           <div className={style.popular__browse}>
             <div className={style.popular__browse_left}>
               <p>
@@ -22,7 +22,7 @@ export const Popular = ({ popularProducts }) => {
             </div>
           </div>
 
-          <div className={style.popular__container}>
+          <div className={style.popular__card_container}>
             {popularProducts.map((product) => {
               if (product.category === "jewelery") {
                 return (

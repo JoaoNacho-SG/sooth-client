@@ -4,20 +4,23 @@
     width: 250px;
     display: flex;
     flex-direction: column;
+
+    img {
+        mix-blend-mode: multiply;
+    }
 }
 
 .card__text_wrapper {
     text-align: center;
-
+    margin-top: 20px;
     h4 {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 100;
         color: $oxford-blue;
     }
 
     p {
-        margin-top: -15px;
-        font-size: 12px;
+        font-size: 0.6rem;
         color: $rangitoto;
     }
 }

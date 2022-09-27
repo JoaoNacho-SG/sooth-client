@@ -11,7 +11,7 @@ import { CartContext } from "../../utils/cart.context";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { cart, cleanCart } = useContext(CartContext);
   const [searchClick, setSearchClick] = useState(false);
 
   return (
@@ -75,7 +75,7 @@ export const Navbar = () => {
                     <li>Login</li>
                   </Link>
                 ) : (
-                  <li onClick={logoutUser}>
+                  <li onClick={(logoutUser, cleanCart)}>
                     <a href="#">Logout</a>
                   </li>
                 )}

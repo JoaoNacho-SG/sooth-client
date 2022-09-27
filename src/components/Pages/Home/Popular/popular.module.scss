@@ -1,5 +1,11 @@
 @use "../../../../styles/variables" as *;
 
+.popular__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .popular__browse {
     width: 100%;
     display: flex;
@@ -14,14 +20,14 @@
 }
 
 .popular__browse_left {
-    margin-left: 100px;
+    margin-left: 250px;
 }
 
 .popular__browse_right {
-    margin-right: 100px;
+    margin-right: 250px;
 }
 
-.popular__container {
+.popular__card_container {
     display: flex;
     justify-content: center;
     gap: 80px;
@@ -29,16 +35,14 @@
     padding-bottom: 100px;
 }
 
-@media (max-width: 450px) {
-    .popular__browse {
-        gap: 20px;
-    }
-
-    .popular__browse_right {
-        text-align: left;
-    }
-
+@media (max-width: 1100px) {
     .popular__browse_right {
         text-align: right;
+        margin: 0;
+    }
+
+    .popular__browse_left {
+        text-align: left;
+        margin: 0;
     }
   }

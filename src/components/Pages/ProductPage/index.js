@@ -85,12 +85,12 @@ export const ProductPage = () => {
             <p>
               <span>{product?.description}</span>
             </p>
-            <p>
-              <span>Quantity</span>
-            </p>
 
             <div className={style.counter__wrapper}>
               <div>
+                <p>
+                  <span>Quantity</span>
+                </p>
                 <button
                   className={style.button_outlined}
                   onClick={() => dispatch({ type: "decrement" })}
@@ -105,7 +105,7 @@ export const ProductPage = () => {
                   +
                 </button>
               </div>
-              <div>
+              <div className={style.button_add_to_cart}>
                 <Button
                   btnClass={"primary"}
                   icon={true}

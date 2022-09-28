@@ -29,7 +29,10 @@ export const Card = ({
         <Tag tagDiscount={true} tagContent={"15% off"} />
       )}
       <Link to={`/product/${id}`}>
-        <img src={img} alt={title} />
+        <div
+          className={style.card__image}
+          style={{ backgroundImage: `url(${img})` }}
+        ></div>
       </Link>
       <figcaption>
         <h4>{title}</h4>

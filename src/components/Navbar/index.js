@@ -14,6 +14,12 @@ export const Navbar = () => {
   const { cart, cleanCart } = useContext(CartContext);
   const [searchClick, setSearchClick] = useState(false);
 
+  const deleteLocalStorage = () => {
+    setSearchClick(false);
+    logoutUser();
+    cleanCart();
+  };
+
   return (
     <>
       <Layout bgColor={"#EEF2F4"}>
@@ -75,7 +81,7 @@ export const Navbar = () => {
                     <li>Login</li>
                   </Link>
                 ) : (
-                  <li onClick={(logoutUser, cleanCart)}>
+                  <li onClick={deleteLocalStorage}>
                     <a href="#">Logout</a>
                   </li>
                 )}

@@ -11,7 +11,7 @@ import { CartContext } from "../../utils/cart.context";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
-  const { cart, cleanCart } = useContext(CartContext);
+  const { cart, cleanCart, setShowCart } = useContext(CartContext);
   const [searchClick, setSearchClick] = useState(false);
 
   const deleteLocalStorage = () => {
@@ -72,7 +72,9 @@ export const Navbar = () => {
                     </div>
                   )}
                   <li>
-                    <a href="#">Cart</a>
+                    <a href="#" onClick={() => setShowCart(true)}>
+                      Cart
+                    </a>
                   </li>
                 </div>
 

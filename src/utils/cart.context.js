@@ -1,10 +1,11 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 const CartContext = createContext();
 
 function CartProviderWrapper({ children }) {
   const [cart, setCart] = useLocalStorage("cart", []);
+  const [showCart, setShowCart] = useState(false);
 
   const cleanCart = () => {
     setCart([]);
@@ -37,7 +38,9 @@ function CartProviderWrapper({ children }) {
   }, [cart]);
 
   return (
-    <CartContext.Provider value={{ addToCart, cart, cleanCart }}>
+    <CartContext.Provider
+      value={{ addToCart, cart, cleanCart, showCart, setShowCart }}
+    >
       {children}
     </CartContext.Provider>
   );

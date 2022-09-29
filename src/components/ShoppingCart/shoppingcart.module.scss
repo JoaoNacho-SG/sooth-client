@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.cart__container {
+    z-index: 1;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    background-color: $athens-gray;
+    border: 1px solid lightgrey;
+    width: 400px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+    h1{
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.8rem
+    }
+}
+
+.cart__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    color: $oxford-blue;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.cart__title_wrapper {
+    color: $oxford-blue
+}

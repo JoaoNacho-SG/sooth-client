@@ -28,38 +28,13 @@ input::placeholder {
 }
 
 .results__wrapper {
-    padding: 15px;
-    max-width: 350px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    gap: 30px;
     border-right: 1px solid $gray-blue;
     border-left: 1px solid $gray-blue;
     border-bottom: 1px solid $gray-blue;
-    background-color: $white-transparent;
 }
 
 .results__wrapper:first-child {
     border-top: 1px solid $gray-blue;
-}
-
-.results__image {
-    width: 100px;
-    height: auto;
-    border-right: 1px solid $gray-blue;
-    padding-right: 15px;
-    mix-blend-mode: multiply;
-}
-
-.results__title {
-    font-weight: 100;
-    font-size: 0.8rem;
-    max-width: 180px;
-    color: $rangitoto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .searchbar_enabled {

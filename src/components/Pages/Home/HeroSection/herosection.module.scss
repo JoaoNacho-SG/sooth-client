@@ -37,3 +37,9 @@
     align-self: center;
   }
 }
+
+@media (max-width: 501px) {
+  .herosection__img_wrapper {
+    display: none;
+  }
+}

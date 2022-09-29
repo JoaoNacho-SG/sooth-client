@@ -48,7 +48,11 @@ export const LoginForm = () => {
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        storeUser(currentUser?.email);
+        if (currentUser !== undefined) {
+          storeUser(currentUser.email);
+        } else {
+          return;
+        }
       });
     })();
   }, [storeUser]);
@@ -96,29 +100,38 @@ export const LoginForm = () => {
   };
 
   return (
-    <section>
+    <section className={style.form__container}>
       <form onSubmit={handleSubmit}>
-        <div className={style.form__container}>
+        <div className={style.form__wrapper}>
           <h1>LOGIN</h1>
 
-          <input
-            type="email"
-            value={email}
-            className={
-              emailError ? style.field__input_error : style.field__input_normal
-            }
-            placeholder="Email Address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div className={style.input__email}>
+            <input
+              type="email"
+              value={email}
+              className={
+                emailError
+                  ? style.field__input_error
+                  : style.field__input_normal
+              }
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          {emailError && (
-            <p className={style.input__error_message}>{emailError}</p>
-          )}
+            <p
+              className={
+                emailError
+                  ? style.input__error_message_visible
+                  : style.input__error_message_invisible
+              }
+            >
+              {emailError}
+            </p>
+          </div>
 
           <div className={style.input__password}>
             <input
               type={!passVisible ? "password" : "text"}
-              value={password}
               className={
                 passwordError
                   ? style.field__input_error
@@ -128,9 +141,15 @@ export const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {passwordError && (
-              <p className={style.input__error_message}>{passwordError}</p>
-            )}
+            <p
+              className={
+                passwordError
+                  ? style.input__error_message_visible
+                  : style.input__error_message_invisible
+              }
+            >
+              {passwordError}
+            </p>
 
             <div
               className={style.input__visibility}

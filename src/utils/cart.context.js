@@ -6,6 +6,10 @@ const CartContext = createContext();
 function CartProviderWrapper({ children }) {
   const [cart, setCart] = useLocalStorage("cart", []);
 
+  const cleanCart = () => {
+    setCart([]);
+  };
+
   const addToCart = (id, amount) => {
     const userCart = localStorage.getItem("cart");
     const shoppingCart = JSON.parse(userCart);
@@ -33,7 +37,7 @@ function CartProviderWrapper({ children }) {
   }, [cart]);
 
   return (
-    <CartContext.Provider value={{ addToCart, cart }}>
+    <CartContext.Provider value={{ addToCart, cart, cleanCart }}>
       {children}
     </CartContext.Provider>
   );

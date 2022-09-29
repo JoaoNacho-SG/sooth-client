@@ -4,6 +4,7 @@ import { Signup } from "./components/views/Signup";
 import { Home } from "./components/views/Home";
 import { Product } from "./components/views/Product";
 import { IsPrivate } from "./utils/isPrivate";
+import { IsLogged } from "./utils/isLogged";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
@@ -13,8 +14,22 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/login"
+          element={
+            <IsLogged>
+              <Login />
+            </IsLogged>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <IsLogged>
+              <Signup />
+            </IsLogged>
+          }
+        />
         <Route
           path="/product/:id"
           element={

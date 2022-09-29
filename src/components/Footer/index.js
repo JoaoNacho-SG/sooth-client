@@ -8,10 +8,6 @@ import style from "./footer.module.scss";
 import { JoinSooth } from "../general/JoinSooth";
 
 export const Footer = () => {
-  const handleClick = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <>
       <JoinSooth />
@@ -31,70 +27,46 @@ export const Footer = () => {
             <ul className={style.list__wrapper}>
               <h5>SHOP</h5>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Lorem ipsum al
-                </a>
+                <a href="#">Lorem ipsum al</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Dolar at
-                </a>
+                <a href="#">Dolar at</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Veraotio
-                </a>
+                <a href="#">Veraotio</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Chauloe
-                </a>
+                <a href="#">Chauloe</a>
               </li>
             </ul>
             <ul className={style.list__wrapper}>
               <h5>ABOUT</h5>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  About Us
-                </a>
+                <a href="#">About Us</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Sooth Stories - Blog
-                </a>
+                <a href="#">Sooth Stories - Blog</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Contact Us
-                </a>
+                <a href="#">Contact Us</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Learn More
-                </a>
+                <a href="#">Learn More</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Stores
-                </a>
+                <a href="#">Stores</a>
               </li>
             </ul>
             <ul className={style.list__wrapper}>
               <h5>MORE</h5>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Dolar at
-                </a>
+                <a href="#">Dolar at</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Lorem at al
-                </a>
+                <a href="#">Lorem at al</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => handleClick(e)}>
-                  Veraotio
-                </a>
+                <a href="#">Veraotio</a>
               </li>
             </ul>
           </div>
@@ -107,21 +79,27 @@ export const Footer = () => {
 
           <div className={style.links__container}>
             <div className={style.links__wrapper}>
-              <p>Privacy Policy</p>
-              <p>Terms of Use</p>
-              <p>Contact Us</p>
+              <p>
+                <a href="#">Privacy Policy</a>
+              </p>
+              <p>
+                <a href="#">Terms of Use</a>
+              </p>
+              <p>
+                <a href="#">Contact Us</a>
+              </p>
             </div>
             <div className={style.logos__wrapper}>
-              <a href="#" onClick={(e) => handleClick(e)}>
+              <a href="#">
                 <MdFacebook />
               </a>
-              <a href="#" onClick={(e) => handleClick(e)}>
+              <a href="#">
                 <AiOutlineInstagram />
               </a>
-              <a href="#" onClick={(e) => handleClick(e)}>
+              <a href="#">
                 <BsTwitter />
               </a>
-              <a href="#" onClick={(e) => handleClick(e)}>
+              <a href="#">
                 <TiSocialYoutubeCircular />
               </a>
             </div>

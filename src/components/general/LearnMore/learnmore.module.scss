@@ -1,7 +1,6 @@
 @use "../../../styles/variables" as *;
 
 .container {
-    margin-top: 100px;
     height: 235px;
     background-color: $athens-gray;
     display: flex;
@@ -10,26 +9,31 @@
 }
 
 .wrapper {
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
-    width: 120px;
+    width: 150px;
 
-    p{
-        font-size: 14px;
+    p {
+        font-size: 1rem;
         color: $oxford-blue;
     }
 
-    span{
+    a {
         text-decoration: underline;
         font-size: 10px;
         color: $oxford-blue;
     }
 }
 .icon {
-    font-size: 30px;
+    font-size: 2rem;
     color: $silver-rust;
 }
 
-@media (max-width: 490px) {
+@media (max-width: 500px) {
     .container {
         display: flex;
         flex-direction: column;

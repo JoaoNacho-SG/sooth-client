@@ -1,41 +1,58 @@
 @use "../../../styles/variables" as *;
 
 .container {
+    background-color: $light-grayish-cyan;
+}
+
+.product__container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-right: 100px;
+    padding-left: 100px;
     width: 100vw;
-    height: calc(100vh - 84px);
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 50px;
 }
 
+.text__container {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .text__wrapper {
-    width: 400px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    gap: 20px;
+
     h4 {
-        font-size: 15px;
+        margin-top: 20px;
+        font-size: 1rem;
         color: $rangitoto;
-        margin-bottom: -10px;
     }
 
     span {
-        font-size: 12px;
+        font-size: 0.8rem;
         color:$rangitoto;
     }
 }
 
 .img__wrapper {
-    width: 320px;
+    width: 40%;
+    height: 500px;
+    background-position:right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
 }
 
 .title {
-    max-width: 300px;
+    max-width: 80%;
     color: $oxford-blue;
-    font-size: 30px;
-    margin-bottom: -5px;
+    font-size: 2.2rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -45,31 +62,46 @@ input::-webkit-inner-spin-button {
 }
 
 .counter__wrapper {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 400px;
+    flex-wrap: wrap;
+    width: 100%;
 
     input {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+        border: none;
         background-color: transparent;
         border-bottom: 1px solid $oxford-blue;
         border-top:1px solid $oxford-blue;
     }
 }
 
+.button_add_to_cart {
+    align-self: flex-end;
+
+    button {
+        height: 40px;
+    }
+}
+
 .button_outlined {
-    width: 34px;
-    height: 34px;
-background-color: transparent;
-border: 1px solid $oxford-blue;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid $oxford-blue;
+}
+
+.button_outlined:hover {
+    color: $white;
+    background-color: $oxford-blue;
 }
 
 .price__wrapper {
     display: flex;
-    gap:15px;
-    margin-bottom: -15px;
+    gap:20px;
     }
 
 .price__nodiscount {
@@ -78,60 +110,53 @@ border: 1px solid $oxford-blue;
 }
 
 .price__discount {
-    color: #DE3B35;
+    color: $dark-orange;
 }
 
-@media (max-width: 770px) {
-    .container{
+@media (max-width: 1000px) {
+    .img__wrapper {
+        background-position: center;
+        width: 250px;
+    }
+
+    .product__container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 655px) {
+    .product__container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .text__container {
+        width: 70%;
+    }
+
+    .title {
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 425px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .img__wrapper {
+        width: 200px;
+    }
+
+    .counter__wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: auto;
-        margin-bottom: 100px;
-        margin-top: 50px;
-    }
-
-    .img__wrapper {
-        width: 150px;
-    }
-    .title {
-        font-size: 25px;
-    }
-
-    .counter__wrapper {
-        display: flex;
         align-items: flex-start;
-        gap: 15px;
+        gap: 5px;
     }
 
-    .text__wrapper {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 500px) {
-    .text__container {
-        margin-right: 100px;
-    }
-
-    .text__wrapper {
-        margin:auto;
-    }
-}
-
-@media (max-width: 400px) {
-    .img__wrapper {
-        align-self: center;
-        margin-right: 100px;
-    }
-
-    .counter__wrapper {
-        width: 300px;
-        display: flex;
-        gap: 10px;
-    }
-
-    .text__container {
-        width: 100vw;
+    .button_add_to_cart {
+        align-self: flex-start;
     }
 }

@@ -12,6 +12,11 @@
     color: $rangitoto;
 }
 
+.btn__primary:hover{
+    background-color: $oxford-blue;
+    color: $white-transparent;
+}
+
 .btn__secondary {
     min-width: 173px;
     min-height:35px;
@@ -20,12 +25,22 @@
     color: $beige;
 }
 
+.btn__secondary:hover{
+    background-color: $white;
+    color: $green_como;
+}
+
 .btn__tertiary {
     min-width: 173px;
     min-height:35px;
     background-color: transparent;
     border: 1px solid $brown;
     color: $rangitoto;
+}
+
+.btn__tertiary:hover{
+    background-color: $brown;
+    color: $white;
 }
 
 .btn__filled {

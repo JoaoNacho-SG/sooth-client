@@ -1,0 +1,33 @@
+@use "../../../styles/variables" as *;
+
+.card__container {
+    width: 320px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: $white;
+}
+
+.card__image_container {
+    border-right: 1px solid $gray-blue;
+}
+
+.card__image_wrapper {
+    margin: 10px;
+    width: 100px;
+    height: 80px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+}
+
+.card__title {
+    font-size: 0.9rem;
+    max-width: 150px;
+    color: $rangitoto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

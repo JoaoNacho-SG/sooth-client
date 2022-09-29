@@ -7,14 +7,22 @@ import { calcPercentage } from "../../../../utils/percentage";
 export const Popular = ({ popularProducts }) => {
   return (
     <>
-      <Layout>
-        <section>
+      <Layout bgColor={"#EEF3F4"}>
+        <section className={style.popular__container}>
           <div className={style.popular__browse}>
-            <p>Most Popular</p>
-            <p>Shop all Products</p>
+            <div className={style.popular__browse_left}>
+              <p>
+                <a href="#">Most Popular</a>
+              </p>
+            </div>
+            <div className={style.popular__browse_right}>
+              <p>
+                <a href="#">Shop all Products</a>
+              </p>
+            </div>
           </div>
 
-          <div className={style.popular__container}>
+          <div className={style.popular__card_container}>
             {popularProducts.map((product) => {
               if (product.category === "jewelery") {
                 return (

@@ -1,6 +1,11 @@
 @use "../../../styles/variables" as *;
 
 .form__container {
+    background-color: $light-grayish-cyan;
+}
+
+.form__wrapper {
+    background-color: $light-grayish-cyan;
     height: calc(80vh - 84px);
     width:300px;
     display: flex;
@@ -8,7 +13,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    gap: 28px;
+    gap: 25px;
 
 h1 {
     color: $oxford-blue;
@@ -23,15 +28,14 @@ span {
 }
 }
 
-input::placeholder {
-    padding-left: 10px;
-}
-
 .signin__text {
-    margin-top: -10px;
     width:300px;
     color: $oxford-blue;
-    font-size: 12px;
+    font-size: 0.7rem;
+}
+
+.input__email {
+    position: relative;
 }
 
 .input__password {
@@ -44,12 +48,21 @@ input::placeholder {
     bottom: 10px;
 }
 
-.input__error_message {
-    font-size: 10px;
-    color: red;
+
+.input__error_message_invisible {
     position: absolute;
+    visibility: hidden;
+    font-size: 0.6rem;
+    color: $red;
     width: 300px;
-    margin-top: -1px;
+}
+
+.input__error_message_visible {
+    position: absolute;
+    visibility: visible;
+    font-size: 0.6rem;
+    color: $red;
+    width: 300px;
 }
 
 .field__input_normal {

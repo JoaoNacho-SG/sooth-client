@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getFiftyProducts } from "../../../utils/api";
+import { CardProduct } from "../CardProduct";
 import style from "./search.module.scss";
 
 export const Search = ({ visible }) => {
@@ -63,16 +63,7 @@ export const Search = ({ visible }) => {
               results.map((productFound) => {
                 return (
                   <li key={productFound.id} className={style.results__wrapper}>
-                    <Link to={`/product/${productFound.id}`}>
-                      <img
-                        src={productFound.image}
-                        alt="product match"
-                        className={style.results__image}
-                      />
-                    </Link>
-                    <h4 className={style.results__title}>
-                      {productFound.title}
-                    </h4>
+                    <CardProduct product={productFound} />
                   </li>
                 );
               })}

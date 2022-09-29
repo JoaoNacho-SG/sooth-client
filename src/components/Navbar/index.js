@@ -11,19 +11,29 @@ import { CartContext } from "../../utils/cart.context";
 
 export const Navbar = () => {
   const { isLoggedIn, logoutUser } = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { cart, cleanCart } = useContext(CartContext);
   const [searchClick, setSearchClick] = useState(false);
+
+  const deleteLocalStorage = () => {
+    setSearchClick(false);
+    logoutUser();
+    cleanCart();
+  };
 
   return (
     <>
-      <Layout>
+      <Layout bgColor={"#EEF2F4"}>
         <header>
           <nav className={style.navbar__container}>
             <ul className={style.navbar__first_row}>
               <GiHamburgerMenu className={style.burger} />
               <div className={style.navbar__content_left}>
-                <li>About</li>
-                <li>Consultation</li>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Consultation</a>
+                </li>
               </div>
               <div className={style.navbar__logo}>
                 <Link className={"link"} to={"/"}>
@@ -35,11 +45,17 @@ export const Navbar = () => {
                   <Search visible={searchClick ? true : false} />
                   <li>
                     {searchClick ? (
-                      <MdOutlineCancel
-                        onClick={() => setSearchClick(!searchClick)}
-                      />
+                      <a href="#">
+                        <MdOutlineCancel
+                          onClick={() => setSearchClick(!searchClick)}
+                        />
+                      </a>
                     ) : (
-                      <FiSearch onClick={() => setSearchClick(!searchClick)} />
+                      <a href="#">
+                        <FiSearch
+                          onClick={() => setSearchClick(!searchClick)}
+                        />
+                      </a>
                     )}
                   </li>
                 </div>
@@ -55,7 +71,9 @@ export const Navbar = () => {
                       </p>
                     </div>
                   )}
-                  <li>Cart</li>
+                  <li>
+                    <a href="#">Cart</a>
+                  </li>
                 </div>
 
                 {!isLoggedIn ? (
@@ -63,18 +81,30 @@ export const Navbar = () => {
                     <li>Login</li>
                   </Link>
                 ) : (
-                  <li onClick={logoutUser}>Logout</li>
+                  <li onClick={deleteLocalStorage}>
+                    <a href="#">Logout</a>
+                  </li>
                 )}
               </div>
             </ul>
 
             <div>
               <ul className={style.navbar__second_row}>
-                <li>Acne</li>
-                <li>Sun</li>
-                <li>Ezcema</li>
-                <li>Psoriasis</li>
-                <li>Vitiligio</li>
+                <li>
+                  <a href="#">Acne</a>
+                </li>
+                <li>
+                  <a href="#">Sun</a>
+                </li>
+                <li>
+                  <a href="#">Ezcema</a>
+                </li>
+                <li>
+                  <a href="#">Psoriasis</a>
+                </li>
+                <li>
+                  <a href="#">Vitiligio</a>
+                </li>
               </ul>
             </div>
           </nav>

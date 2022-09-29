@@ -18,6 +18,7 @@ export const SignupForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [passVisible, setPassVisible] = useState(false);
+  const [confirmPassVisible, setConfirmPassVisible] = useState(false);
   const { storeUser, authenticateUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -43,7 +44,11 @@ export const SignupForm = () => {
   useEffect(() => {
     (async () => {
       onAuthStateChanged(auth, (currentUser) => {
-        storeUser(currentUser.email);
+        if (currentUser !== undefined) {
+          storeUser(currentUser.email);
+        } else {
+          return;
+        }
       });
     })();
   }, [storeUser]);
@@ -91,18 +96,21 @@ export const SignupForm = () => {
     }
     //If all input matches criteria, continue
     setPasswordError("");
+    setConfirmPasswordError("");
     setEmailError("");
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
     await register(auth, email, password);
   };
 
   return (
-    <section>
+    <section className={style.form__container}>
       <form onSubmit={handleSubmit}>
-        <div className={style.form__container}>
+        <div className={style.form__wrapper}>
           <h1>REGISTER</h1>
-          <div>
+
+          <div className={style.input__email}>
             <input
               type="email"
               value={email}
@@ -115,15 +123,20 @@ export const SignupForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            {emailError && (
-              <p className={style.input__error_message}>{emailError}</p>
-            )}
+            <p
+              className={
+                emailError
+                  ? style.input__error_message_visible
+                  : style.input__error_message_invisible
+              }
+            >
+              {emailError}
+            </p>
           </div>
 
           <div className={style.input__password}>
             <input
               type={!passVisible ? "password" : "text"}
-              value={password}
               className={
                 passwordError || confirmPasswordError
                   ? style.field__input_error
@@ -133,9 +146,15 @@ export const SignupForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {passwordError && (
-              <p className={style.input__error_message}>{passwordError}</p>
-            )}
+            <p
+              className={
+                passwordError
+                  ? style.input__error_message_visible
+                  : style.input__error_message_invisible
+              }
+            >
+              {passwordError}
+            </p>
 
             <div
               className={style.input__visibility}
@@ -147,8 +166,7 @@ export const SignupForm = () => {
 
           <div className={style.input__password}>
             <input
-              type="password"
-              value={confirmPassword}
+              type={!confirmPassVisible ? "password" : "text"}
               className={
                 confirmPasswordError
                   ? style.field__input_error
@@ -158,11 +176,22 @@ export const SignupForm = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
 
-            {confirmPasswordError && (
-              <p className={style.input__error_message}>
-                {confirmPasswordError}
-              </p>
-            )}
+            <p
+              className={
+                confirmPasswordError
+                  ? style.input__error_message_visible
+                  : style.input__error_message_invisible
+              }
+            >
+              {confirmPasswordError}
+            </p>
+
+            <div
+              className={style.input__visibility}
+              onClick={() => setConfirmPassVisible(!confirmPassVisible)}
+            >
+              {!confirmPassVisible ? <BsEyeFill /> : <BsEyeSlashFill />}
+            </div>
           </div>
 
           {!email.length || !password.length || !confirmPassword.length ? (

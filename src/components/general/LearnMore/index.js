@@ -10,20 +10,22 @@ export const LearnMore = () => {
         <AiOutlineShop className={style.icon} />
         <p>We’re offering new ways to shop.</p>
         <p>
-          <span>learn more</span>
+          <a href="#">Learn more</a>
         </p>
       </article>
 
       <article className={style.wrapper}>
         <AiOutlineShoppingCart className={style.icon} />
         <p>Buy online, pickup in store</p>
-        <span>learn more</span>
+        <a href="#">Learn more</a>
       </article>
 
       <article className={style.wrapper}>
         <FiPhoneCall className={style.icon} />
-        <p>Curbside pickup</p>
-        <span>learn more</span>
+        <p>
+          Curbside <br /> pickup
+        </p>
+        <a href="#">Learn more</a>
       </article>
     </section>
   );

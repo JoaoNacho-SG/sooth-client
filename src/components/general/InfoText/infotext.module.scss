@@ -1,19 +1,29 @@
 .article__text {
     max-width: 400px;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
     h1 {
-        max-width: 320px;
+        max-width: 380px;
     }
 
     p {
-        margin-top:-20px;
-        font-size: 12px;
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
 }
 
 @media(max-width: 501px) {
     .article__text{
         text-align: left;
-        width: 300px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 390px) {
+    .article__text {
+        width: 250px;
     }
 }

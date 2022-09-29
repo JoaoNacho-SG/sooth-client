@@ -2,16 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 $font-family: Outfit;
 
-body {
+* {
   margin: 0;
   padding: 0;
-  border: 0;
   font-family: $font-family;
-  background-color: $alabasterr;
-  }
+  box-sizing: border-box;
+}
 
 ul {
   list-style: none; 
+}
+
+input {
+  padding-left: 10px;
+}
+
+input::placeholder {
+  padding-left: 10px;
 }
 
 button:hover {

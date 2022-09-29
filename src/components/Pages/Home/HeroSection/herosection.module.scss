@@ -1,3 +1,5 @@
+@use "../../../../styles/variables" as *;
+
 .herosection__container {
   display: flex;
   justify-content: center;
@@ -20,17 +22,24 @@
 
 .herosection__img {
   width: 60%;
+  mix-blend-mode: multiply;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 670px) {
   .herosection__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
     height: 100vh;
   }
 
   .herosection__img_wrapper {
     align-self: center;
+  }
+}
+
+@media (max-width: 501px) {
+  .herosection__img_wrapper {
+    display: none;
   }
 }

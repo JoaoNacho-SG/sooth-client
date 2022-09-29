@@ -3,12 +3,12 @@
 .search__container{
     position: relative;
     display: flex;
-    max-width: 200px;
-    margin-left: 150px;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .search__input {
-    max-width: 200px;
+    width: 150px;
     border: none;
     border-bottom: 1px solid $oxford-blue-transparent ;
     background-color: transparent;
@@ -17,49 +17,24 @@
 
 input::placeholder {
     color: $oxford-blue-transparent;
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
 .results__container {
     position: absolute;
     top: 30px;
-    left: -120px;
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: scroll;
 }
 
 .results__wrapper {
-    padding: 15px;
-    max-width: 300px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
     border-right: 1px solid $gray-blue;
     border-left: 1px solid $gray-blue;
     border-bottom: 1px solid $gray-blue;
-    background-color: $white-transparent;
 }
 
 .results__wrapper:first-child {
     border-top: 1px solid $gray-blue;
-}
-
-.results__image {
-    width: 100px;
-    height: 100px;
-    border-right: 1px solid $gray-blue;
-    padding-right: 15px;
-}
-
-.results__title {
-    font-weight: 100;
-    font-size: 14px;
-    max-width: 180px;
-    color: $rangitoto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .searchbar_enabled {

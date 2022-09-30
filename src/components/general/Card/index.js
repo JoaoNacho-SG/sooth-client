@@ -53,7 +53,9 @@ export const Card = ({
         btnContent={btnContent}
         btnClass={btnClass}
         icon={icon}
-        addToCart={() => addToCart(id, 1)}
+        addToCart={() =>
+          addToCart(id, img, title, newprice ? newprice : price, 1)
+        }
       />
     </figure>
   );

@@ -11,24 +11,35 @@ function CartProviderWrapper({ children }) {
     setCart([]);
   };
 
-  const addToCart = (id, amount) => {
+  const addToCart = (id, image, title, price, amount) => {
     const userCart = localStorage.getItem("cart");
     const shoppingCart = JSON.parse(userCart);
     //No cart was found
     if (!userCart) {
-      const newCart = [{ id: id, amount: amount }];
+      const newCart = [
+        { id: id, image: image, title: title, price: price, amount: amount },
+      ];
       setCart(...newCart);
     }
     //Cart was found and product is not in the cart
     if (shoppingCart.find((product) => product.id === id) === undefined) {
-      setCart([...shoppingCart, { id: id, amount: amount }]);
+      setCart([
+        ...shoppingCart,
+        { id: id, image: image, title: title, price: price, amount: amount },
+      ]);
     } else {
       //Cart was found and product is in the cart
       let productToUpdate = shoppingCart.find((product) => product.id === id);
       let filteredShoppingCart = shoppingCart.filter(
         (product) => product.id !== id
       );
-      productToUpdate = { id: id, amount: productToUpdate.amount + amount };
+      productToUpdate = {
+        id: id,
+        image: image,
+        title: title,
+        price: price,
+        amount: productToUpdate.amount + amount,
+      };
       setCart([...filteredShoppingCart, productToUpdate]);
     }
   };

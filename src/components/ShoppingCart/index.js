@@ -16,6 +16,7 @@ export const ShoppingCart = () => {
       // const filtered = allProducts.data.filter((product) =>
       //   cart.some((elem) => elem.id === product.id)
       // );
+
       // cart.sort((a, b) => b.id - a.id);
       // filtered.sort((a, b) => b.id - a.id);
       // let newArr = [];

@@ -1,0 +1,62 @@
+@use "../../styles/variables" as *;
+
+.cart__container {
+    z-index: 1;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    background-color: $athens-gray;
+    outline: 2px solid rgba(230, 229, 229, 0.607);
+    width: 400px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    h1{
+        font-size: 1.6rem;
+    }
+}
+
+.cart__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    color: $oxford-blue;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.products__container {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.products__wrapper {
+    margin-top: 10px;
+    border: 1px solid $gray-blue;
+}
+
+
+.cart__title_wrapper {
+    color: $oxford-blue
+}
+
+.divider {
+    width: 95%;
+    border: 1px solid $oxford-blue;
+}
+
+.totalprice__wrapper {
+    width: 95%;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    color: $oxford-blue;
+    font-size: 1rem;
+}
